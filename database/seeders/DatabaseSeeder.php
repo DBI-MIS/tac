@@ -156,6 +156,6 @@ The Coconut Industry is a sunshine industry. It is today one of the most promisi
             'desc2' => ' ',
         ]);
 
-        Project::factory()->count(50)->create();
+        // Project::factory()->count(50)->create();
     }
 }

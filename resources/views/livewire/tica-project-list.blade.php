@@ -63,7 +63,7 @@
                 @endif
 
                 @foreach($this->projects as $project)
-                    <x-projects.grad-project-item :project="$project"/>
+                <x-projects.project-item-category :project="$project"/>
                 @endforeach
             </div>
 
