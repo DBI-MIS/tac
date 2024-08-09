@@ -10,7 +10,7 @@
 
     @endif
 
-    <div class="rounded-xl overflow-hidden w-full flex flex-col bg-white">
+    <div class="rounded-xl overflow-hidden w-full flex flex-col bg-white py-4">
 
 
    <div class="w-full inline-flex flex-nowrap overflow-hidden">

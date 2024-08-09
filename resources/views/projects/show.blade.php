@@ -1,6 +1,6 @@
 @props(['project'])
 <x-app-layout>
-<div class="bg-white min-h-full pb-40 mb-40">
+<div class=" min-h-full pb-40 mb-40">
     <!-- Hero Section -->
     {{-- <section class="relative flex items-center h-[30vh] sm:h-[40vh] text-white overflow-hidden">
         @php
@@ -16,7 +16,7 @@
         @php
             $isGradProject = $project->brand === 'GRAD Projects';
             $backgroundImage = $isGradProject ? asset('/GRAD_BG.webp') : asset('/TICA_BG.webp');
-            $logoImage = $isGradProject ? asset('grad_logo_white.svg') : asset('tica_logo_white.svg');
+            $logoImage = $isGradProject ? asset('GRAD_LOGO_WHITE.svg') : asset('tica_logo_white.svg');
             $brandWords = explode(' ', $project->brand);
             $brandSecondWord = isset($brandWords[1]) ? $brandWords[1] : '';
         @endphp
@@ -33,7 +33,7 @@
                         {{$project->category}}
                     </p>
                     <div class="flex  flex-row gap-2">
-                            <img src="{{ $logoImage }}" alt="{{ $project->brand }}" class="w-28 hidden sm:block lg:w-[120px]">
+                            <img src="{{ $logoImage }}" alt="{{ $project->brand }}" class="w-20 hidden sm:block lg:w-[120px]">
                             <h1 class="w-full  lg:w-[80%] hidden sm:block text-balance text-xl md:text-2xl lg:text-3xl font-bold text-white"> {{$brandSecondWord}}</h1>
                      
                        
@@ -54,12 +54,12 @@
                      alt="{{ $project->title }}">
             </div>
             <!-- Project Info -->
-            <div class="mr-20">
-                <h1 class="text-2xl font-bold leading-8 tracking-wide text-red-800 mb-4">{{$project->title}}</h1>
-                <p class="hidden sm:block text-lg mb-2"><strong>Category:</strong> {{$project->category}}</p>
-                <p class="block sm:hidden text-lg mb-2"><strong>Brand:</strong> {{$project->brand}}</p>
+            <div class="mr-20 ">
+                <h1 class="text-2xl font-bold leading-8 tracking-wide text-red-800 dark:text-red-400 mb-4">{{$project->title}}</h1>
+                <p class="hidden sm:block text-lg mb-2 dark:text-white "><strong>Category:</strong> {{$project->category}}</p>
+                <p class="block sm:hidden text-lg mb-2 dark:text-white"><strong>Brand:</strong> {{$project->brand}}</p>
                 <hr>
-                <p class=" text-lg sm:text-xl my-4 leading-8">{{$project->description}}</p>
+                <p class=" text-md sm:text-xl my-4 leading-8 dark:text-white ">{{$project->description}}</p>
             </div>
         </div>
     </div>
