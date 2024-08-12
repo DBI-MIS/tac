@@ -39,7 +39,7 @@
             <button class="{{ $sort === 'asc' ? 'text-gray-900 border-b border-gray-700': 'text-gray-500' }} py-4 " wire:click="filterByCategory('virgin-coconut-oil')">Virgin Coconut Oil Products</button>
         </div> --}}
     </div>
-    <div class="py-5 flex flex-col md:grid md:grid-cols lg:grid-cols-2 dark:text-white">
+    <div class="py-5 flex flex-col md:grid md:grid-cols lg:grid-cols-2 gap-5 dark:text-white bg-white rounded-lg">
         @if ($this->products->count() == 0)
         <tr >
             <td colspan="4">No Products to display.</td>

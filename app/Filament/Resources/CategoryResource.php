@@ -89,8 +89,14 @@ class CategoryResource extends Resource
             ->columns([
                 TextColumn::make('title')
                     ->searchable(),
-                ColorColumn::make('text_color'),
-                ColorColumn::make('bg_color'),
+                    Tables\Columns\TextColumn::make('created_at')
+                    ->dateTime()
+                    ->sortable()
+                    ->toggleable(isToggledHiddenByDefault: false),
+                Tables\Columns\TextColumn::make('updated_at')
+                    ->dateTime()
+                    ->sortable()
+                    ->toggleable(isToggledHiddenByDefault: false),
             ])
             ->filters([
                 //
