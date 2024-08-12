@@ -2,9 +2,11 @@
 
 namespace App\Livewire;
 
+use App\Models\Product;
 use App\Models\Response;
 use Carbon\Carbon;
 use Filament\Forms\Components\DatePicker;
+use Filament\Forms\Components\Hidden;
 use Filament\Forms\Components\MarkdownEditor;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\Textarea;
@@ -21,7 +23,6 @@ class ProductResponse extends Component implements HasForms
     
     public ?array $data = [];
     public ?string $date_response = '';
-    // public ?string $product_id = '';
     public ?string $full_name = '';
     public ?string $contact_no = '';
     public ?string $email_address = '';
@@ -29,6 +30,8 @@ class ProductResponse extends Component implements HasForms
     public $showModal = false;
     public $showSuccessMessage = '';
     public $product_id;
+    public $product_name;
+    
     protected $rules = [
         'full_name' => 'required|min:5',
         'contact_no' => 'required|min:11',
@@ -50,26 +53,29 @@ class ProductResponse extends Component implements HasForms
     
     public function mount($product_id): void
     {
+        $product = Product::find($product_id);
+        $this->product_id = $product->id;
+        $this->product_name = $product->name;
+        
         $this->form->fill();
-        $this->product_id = $product_id;
     }
     
     public function form(Form $form): Form
     {
         return $form
             ->schema([
-                TextInput::make('full_name')
-                    ->required()
-                    ->minLength(5),
-                    TextInput::make('product_id')
-                    ->default($this->product_id)
-                    ->readOnly(),
                 DatePicker::make('date_response')
                     ->required()
                     ->default(Carbon::now()->format('m-d-Y'))
                     ->format('F j, Y')
                     ->readOnly(),
+                TextInput::make('full_name')
+                    ->required()
+                    ->minLength(5),
+                Hidden::make('product_id')
+                    ->default($this->product_id),
                 TextInput::make('contact_no')
+                    ->required()
                     ->minLength(11),
                 TextInput::make('email_address')
                     ->required()

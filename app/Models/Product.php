@@ -51,7 +51,7 @@ class Product extends Model
 
     public function scopePublished($query)
     {
-        return $query->where('status', true);
+        return $query->where('featured', true);
     }
 
     public function scopeWithCategory($query, string $category)
