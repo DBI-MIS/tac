@@ -63,7 +63,6 @@ class CreateContact extends Component implements HasForms
         
             TextInput::make('email')
                 ->required()
-                ->unique()
                 ->email()
                 ->label('Email'),
             Textarea::make('message')

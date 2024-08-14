@@ -14,6 +14,7 @@ use Filament\Forms\Components\Toggle;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
+use Filament\Tables\Columns\SelectColumn;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
@@ -84,8 +85,22 @@ class ResponseResource extends Resource
                     ->searchable(),
                 Tables\Columns\IconColumn::make('review')
                     ->boolean(),
-                Tables\Columns\TextColumn::make('status')
-                    ->searchable(),
+                    SelectColumn::make('status')
+                    ->options([
+                        'pending' => 'pending',
+                        'reviewed' => 'reviewed',
+                    ])
+                    ->afterStateUpdated(function($state, $record){
+                        if($state === 'reviewed'){
+                            $record->review = true;
+                            $record->save();
+                        }
+                        else{
+                            $record->review = false;
+                            $record->save();
+    
+                        }
+                    } )
             ])
             ->filters([
                 //

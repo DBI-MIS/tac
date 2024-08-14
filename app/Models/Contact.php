@@ -10,6 +10,11 @@ class Contact extends Model
 {
     use HasFactory;
     use Notifiable;
+    
+    protected $cast = [
+        'review' => 'boolean',
+
+    ];
 
     protected $fillable = [
         'name',
@@ -17,6 +22,8 @@ class Contact extends Model
         'contact_no',
         'email',
         'message',
+        'status',
+        'review',
     ];
 
 

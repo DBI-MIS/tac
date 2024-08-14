@@ -2,14 +2,14 @@
 <article class="[&:not(:last-child)]:border-b border-gray-100 pb-2 dark:border-white">
     <div class="article-body grid grid-cols-4 gap-3 mt-5 items-start cursor-pointer">
         <div class="col-span-4 flex flex-col sm:flex-row gap-2 items-start group px-5">
-            <div class="col-span-1 flex-shrink-0 w-[180px]" wire:navigate href="{{ route('products.show', $product->slug) }}">
+            <div class="col-span-1 flex-shrink-0 w-[200px]" wire:navigate href="{{ route('products.show', $product->slug) }}">
                 
                 <tr>
                     <td>
                         <img
                         src="{{ $product->product_img ? asset('storage/' . $product->product_img) : asset('/default-slide-1.webp') }}"
                         alt="{{ $product->title }}"
-                        class="w-auto h-auto max-w-[160px] max-h-[100px] mx-auto group-hover:scale-110 transition-all ease-in-out duration-300">
+                        class="mx-auto group-hover:scale-110 transition-all ease-in-out duration-300">
                     </td>
                 </tr>
              

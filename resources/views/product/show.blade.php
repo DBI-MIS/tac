@@ -6,7 +6,7 @@
     <article class="col-span-8 md:col-span-3 md:mt-10 mx-auto py-5 w-full h-full" style="max-width:900px">
         <div class="flex flex-col md:flex-row items-start gap-x-2 w-full">
 
-            <div class="py-5 px-5 mb-5 rounded-xl border-opacity-10 p-2 bg-white border-blue-800 dark:bg-gray-400" style="max-width:300px">
+            <div class="py-5 px-5 mb-5 rounded-xl border-opacity-10 p-2 bg-white border-blue-800 dark:bg-gray-400" style="max-width:300px; min-width:280px">
 
                 <tr>
                     <td>
@@ -18,7 +18,7 @@
 
             </div>
 
-            <div class="grid grid-cols-3 gap-3 flex-grow min-w-[500px]">
+            <div class="grid grid-cols-3 gap-3 flex-grow lg:min-w-[500px]">
                 <div
                     class="col-span-3 w-full py-5 px-5 mb-5 rounded-xl border-l-4 border-opacity-10 p-2 bg-white border-blue-800 dark:bg-gray-400">
 

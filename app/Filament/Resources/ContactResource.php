@@ -6,14 +6,16 @@ use App\Filament\Resources\ContactResource\Pages;
 use App\Filament\Resources\ContactResource\RelationManagers;
 use App\Models\Contact;
 use Filament\Forms;
-use Filament\Forms\Components\Select;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
+use Filament\Tables\Columns\IconColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
+use Filament\Forms\Components\Select;
+use Filament\Tables\Columns\SelectColumn;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 
@@ -73,14 +75,25 @@ class ContactResource extends Resource
                 TextColumn::make('message')
                     ->label('Message')
                     ->sortable(),
-                TextColumn::make('created_at')
-                        ->dateTime()
-                        ->sortable()
-                        ->toggleable(isToggledHiddenByDefault: true),
-                TextColumn::make('updated_at')
-                        ->dateTime()
-                        ->sortable()
-                        ->toggleable(isToggledHiddenByDefault: true),
+               IconColumn::make('review')
+                    ->label('Review')
+                    ->boolean(),
+                SelectColumn::make('status')
+                ->options([
+                    'pending' => 'pending',
+                    'reviewed' => 'reviewed',
+                ])
+                ->afterStateUpdated(function($state, $record){
+                    if($state === 'reviewed'){
+                        $record->review = true;
+                        $record->save();
+                    }
+                    else{
+                        $record->review = false;
+                        $record->save();
+
+                    }
+                } )
             ])
             ->filters([
                 //

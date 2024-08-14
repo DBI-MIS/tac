@@ -1,3 +1,4 @@
+<a href="mailto:corporate@dbiphils.com?subject=Business Partnership Inquiry&body=Dear%20Team,">
 <div class="group hover:scale-105 md:hover:scale-105 hover:z-50 transition-all hover:bg-white dark:hover:bg-transparent rounded-xl cursor-pointer bg-transparent">
     <div class=" bg-red-600 rounded-xl p-2 flex items-center gap-2 group-hover:bg-red-700">
         <div class="w-[36px] flex-shrink-0">
@@ -19,3 +20,4 @@
         <span class="font-bold text-md ">corporate@dbiphils.com</span>
     </p>
 </div>
+</a>

@@ -3,9 +3,9 @@
     <h1 class="dark:text-gray-100 text-3xl">Featured Products</h1>
     </div>
     <div class="p-4"></div>
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+    <div class="flex flex-wrap py-6 gap-2">
     @foreach ($featuredProducts as $product)
-    <x-page.featured-products :product="$product" />
+        <x-page.featured-products :product="$product" />
     @endforeach
     </div>
 </div>

@@ -19,7 +19,9 @@ use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Columns\IconColumn;
 use Filament\Tables\Columns\ImageColumn;
+use Filament\Tables\Columns\SelectColumn;
 use Filament\Tables\Columns\TextColumn;
+use Filament\Tables\Columns\ToggleColumn;
 use Filament\Tables\Table;
 use Illuminate\Support\Str;
 use Illuminate\Database\Eloquent\Builder;
@@ -92,7 +94,7 @@ class ProjectResource extends Resource
                 ])->columnSpan(3),
              
                 Section::make()->schema([
-                    Toggle::make('featured')
+                Toggle::make('featured')
                     ->required(),
                 Toggle::make('status')
                     ->required(),
@@ -111,34 +113,22 @@ class ProjectResource extends Resource
     {
         return $table
             ->columns([
+                ImageColumn::make('project_img')
+                    ->label('Project Image'),
                 TextColumn::make('title')
                     ->searchable()
                     ->sortable(),
-                ImageColumn::make('project_img')
-                    ->label('Project Image'),
                 TextColumn::make('brand')
                     ->searchable() 
                      ->sortable(),
                     TextColumn::make('category')
                     ->searchable()  
                     ->sortable(),
-                    IconColumn::make('featured')
-                    ->boolean(),
-                IconColumn::make('status')
-                    ->boolean(),
-                TextColumn::make('created_at')
-                    ->dateTime()
-                    ->sortable()
-                    ->toggleable(isToggledHiddenByDefault: true),
-                TextColumn::make('updated_at')
-                    ->dateTime()
-                    ->sortable()
-                    ->toggleable(isToggledHiddenByDefault: true),
-                TextColumn::make('deleted_at')
-                    ->dateTime()
-                    ->sortable()
-                    ->toggleable(isToggledHiddenByDefault: true),
-            ])
+                    ToggleColumn::make('featured'),
+                    ToggleColumn::make('status')->label('Active'),
+                
+            ])->defaultSort('created_at', 'asc')
+            ->defaultPaginationPageOption(50)
             ->filters([
                 //
             ])
