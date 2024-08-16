@@ -65,25 +65,28 @@ class ProductResponse extends Component implements HasForms
         return $form
             ->schema([
                 DatePicker::make('date_response')
-                    ->required()
-                    ->default(Carbon::now()->format('m-d-Y'))
-                    ->format('F j, Y')
-                    ->readOnly(),
+                    ->default(date(today()))
+                    ->readOnly()
+                    ->label('Date'),
                 TextInput::make('full_name')
                     ->required()
-                    ->minLength(5),
-                Hidden::make('product_id')
+                    ->minLength(5)
+                    ->label('Full Name'),
+                    Hidden::make('product_id')
                     ->default($this->product_id),
                 TextInput::make('contact_no')
                     ->required()
-                    ->minLength(11),
+                    ->minLength(11)
+                    ->label('Contact No.'),
                 TextInput::make('email_address')
                     ->required()
                     ->endsWith(['.com,.org,.ph'])
-                    ->email(),
+                    ->email()
+                    ->label('Email Address'),
                 Textarea::make('message')
                     ->required()
-                    ->minLength(20),
+                    ->minLength(20)
+                    ->label('Message'),
                 Toggle::make('review')
                     ->default(false)
                     ->hidden(),

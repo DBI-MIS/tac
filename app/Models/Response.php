@@ -36,6 +36,9 @@ class Response extends Model
         'date_response' => 'datetime',
         'review' => 'boolean',
     ];
+    protected $attributes = [
+        'date_response' => null, // or Carbon::now()->format('Y-m-d')
+    ];
     
     public function product()
     {

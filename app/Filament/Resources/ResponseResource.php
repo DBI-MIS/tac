@@ -42,10 +42,7 @@ class ResponseResource extends Resource
                 ->columnSpan(2)
                 ->hint('  '),
                 DatePicker::make('date_response')
-                ->required()
-                ->readonly()
                 ->closeOnDateSelection()
-                ->default(now())
                 ->label(__('Date')),
                 TextInput::make('contact_no')
                 ->tel()
@@ -53,7 +50,6 @@ class ResponseResource extends Resource
                 ->label(__('Contact Number')),
                 TextInput::make('email_address')
                 ->email()
-                ->unique()
                 ->label(__('Email Address')),
                 Textarea::make('message')
                     ->required()

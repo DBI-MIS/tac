@@ -15,7 +15,7 @@
              
             </div>
             <div class="col-span-2">
-                <h2 class="text-xl font-bold text-gray-900 dark:text-white ">
+                <h2 class="text-xl font-bold text-gray-900 ">
                     <a wire:navigate href="{{ route('products.show', $product->slug) }}" >
                         {{ $product->title }}
                         
@@ -35,7 +35,7 @@
                                 @endforeach
                     
                     </div>
-                    <div class="mt-2 text-base text-gray-700 font-light dark:text-white flex flex-col mb-2">
+                    <div class="mt-2 text-base text-gray-700 font-light  flex flex-col mb-2">
                     
 
                         @if ($product->description === null)
