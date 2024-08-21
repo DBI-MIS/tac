@@ -6,7 +6,7 @@
     <!-- Modal -->
     @if($showModal)
         <div class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50" wire:ignore.self>
-            <div class="bg-white rounded-lg shadow-md max-w-xl w-full mx-4 sm:mx-6 md:mx-8 lg:mx-auto relative">
+            <div class="bg-white dark:bg-gray-800 rounded-lg shadow-md max-w-xl w-full mx-4 sm:mx-6 md:mx-8 lg:mx-auto relative">
                 <button wire:click="$set('showModal', false)" class="absolute top-2 right-2 p-2 text-gray-500 bg-gray-200 rounded-full hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-400">
                     <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>

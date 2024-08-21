@@ -5,6 +5,7 @@ namespace App\Filament\Resources;
 use App\Filament\Resources\ContactResource\Pages;
 use App\Filament\Resources\ContactResource\RelationManagers;
 use App\Models\Contact;
+use Carbon\Carbon;
 use Filament\Forms;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
@@ -18,12 +19,20 @@ use Filament\Forms\Components\Select;
 use Filament\Tables\Columns\SelectColumn;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use pxlrbt\FilamentExcel\Actions\Tables\ExportBulkAction;
+use pxlrbt\FilamentExcel\Columns\Column;
+use pxlrbt\FilamentExcel\Exports\ExcelExport;
 
 class ContactResource extends Resource
 {
     protected static ?string $model = Contact::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'bxs-contact';
+
+    public static function getNavigationBadge(): ?string
+{
+    return static::getModel()::count();
+}
 
     public static function form(Form $form): Form
     {
@@ -94,16 +103,41 @@ class ContactResource extends Resource
 
                     }
                 } )
-            ])
+            ])->heading('Contact Inquiry')
             ->filters([
                 //
             ])
             ->actions([
-                Tables\Actions\EditAction::make(),
+                Tables\Actions\ViewAction::make(),
+                // Tables\Actions\EditAction::make(),
+                // Tables\Actions\DeleteAction::make(), 
+                Tables\Actions\RestoreAction::make(),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
+                    ExportBulkAction::make()->exports([
+                        ExcelExport::make()
+                        ->withFilename(date(Carbon::now()) . ' - Product Inquiry Responses')
+                        ->withColumns([
+                            // Column::make('date_response')
+                            // ->heading('Date of Inquiry'),
+                            Column::make('name')
+                            ->heading('Name'),
+                            Column::make('subject')
+                            ->heading('Purpose'),
+                            Column::make('contact_no')
+                            ->heading('Contact No.'),
+                            Column::make('email')
+                            ->heading('Email'),
+                            Column::make('message')
+                            ->heading('Message'),
+                            Column::make('status')
+                            ->heading('Status'),
+                        ]),
+                    ]),
                     Tables\Actions\DeleteBulkAction::make(),
+                    Tables\Actions\ForceDeleteBulkAction::make(), 
+                    Tables\Actions\RestoreBulkAction::make(), 
                 ]),
             ]);
     }
@@ -121,6 +155,7 @@ class ContactResource extends Resource
             'index' => Pages\ListContacts::route('/'),
             'create' => Pages\CreateContact::route('/create'),
             'edit' => Pages\EditContact::route('/{record}/edit'),
+            'view' => Pages\ViewContacts::route('/{record}'),
         ];
     }
 }

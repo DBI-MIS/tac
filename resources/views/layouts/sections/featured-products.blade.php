@@ -3,7 +3,8 @@
     <h1 class="dark:text-gray-100 text-4xl font-bold">Experts' Recommendations</h1>
     </div>
     <div class="p-4"></div>
-    <div class="flex flex-wrap py-6 gap-2">
+    {{-- <div class="flex flex-wrap py-6 gap-2"> --}}
+        <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 py-6 gap-4">
     @foreach ($featuredProducts as $product)
         <x-page.featured-products :product="$product" />
     @endforeach

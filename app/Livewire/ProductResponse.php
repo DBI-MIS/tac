@@ -85,7 +85,7 @@ class ProductResponse extends Component implements HasForms
                     ->label('Email Address'),
                 Textarea::make('message')
                     ->required()
-                    ->minLength(20)
+                    ->minLength(10)
                     ->label('Message'),
                 Toggle::make('review')
                     ->default(false)

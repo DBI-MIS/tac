@@ -1,13 +1,13 @@
 @props(['product'])
 <div
     class="rounded-xl border border-opacity-10  bg-white hover:bg-gray-100 border-red-800 
-cursor-pointer group hover:shadow-lg shadow-sm px-6 flex flex-col justify-between mx-auto py-4">
+cursor-pointer group hover:shadow-lg shadow-sm px-6 flex flex-col justify-between mx-auto py-4 max-w-[280px] min-w-[280px] w-full m-1">
 
-    <div class="text-balance block w-[250px] h-[340px] mb-2"
+    <div class="text-balance block h-[340px] mb-2"
     wire:navigate href="{{ route('products.show', $product->slug) }}">
 
-        <div class=" mx-auto group-hover:scale-110 transition-all ease-in-out duration-300">
-            <img 
+        <div class=" mx-auto w-auto group-hover:scale-110 transition-all ease-in-out duration-300">
+            <img class="min-w-[200px]"
                 src="{{ $product->product_img ? asset('storage/' . $product->product_img) : asset('/default-slide-1.webp') }}"
                 alt="{{ $product->title }}"/>
         </div>
