@@ -11,7 +11,9 @@ class ProjectList extends Component
     #[Computed()]
     public function projects()
     {
-        return Project::orderBy('created_at')->where('status',true)
+        return Project::orderBy('created_at', 'desc')
+        ->where('status',true)
+        ->where('featured', true)
         ->take(8)
         ->get();
     }

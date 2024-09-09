@@ -194,7 +194,8 @@ class ProductResource extends Resource
                 TextColumn::make('product_brand.name')
                     ->numeric()
                     ->label('Brand')
-                    ->sortable(),
+                    ->sortable()
+                    ->searchable(),
                 TextColumn::make('categories')
                     ->label('Category')->badge()
                     ->searchable(),
@@ -219,8 +220,14 @@ class ProductResource extends Resource
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
-            ])->defaultSort('created_at', 'asc')
+            ])
+            ->defaultSort('updated_at', 'desc')
             ->defaultPaginationPageOption(50)
+            ->striped()
+            ->persistFiltersInSession()
+            ->persistSortInSession()
+            ->persistSearchInSession()
+            ->persistColumnSearchesInSession()
             ->filters([
                 SelectFilter::make('brand_id')
                     ->label('Select Brand')

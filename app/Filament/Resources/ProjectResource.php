@@ -124,11 +124,22 @@ class ProjectResource extends Resource
                     TextColumn::make('category')
                     ->searchable()  
                     ->sortable(),
-                    ToggleColumn::make('featured'),
-                    ToggleColumn::make('status')->label('Active'),
+                ToggleColumn::make('featured'),
+                ToggleColumn::make('status')->label('Active'),
+                TextColumn::make('created_at')
+                    ->dateTime()
+                    ->sortable()
+                    ->toggleable(isToggledHiddenByDefault: true),
+                TextColumn::make('updated_at')
+                    ->dateTime()
+                    ->sortable()
+                    ->toggleable(isToggledHiddenByDefault: true),
                 
-            ])->defaultSort('created_at', 'asc')
+            ])
+            ->defaultSort('created_at', 'asc')
             ->defaultPaginationPageOption(50)
+            ->striped()
+            ->persistFiltersInSession()
             ->filters([
                 //
             ])

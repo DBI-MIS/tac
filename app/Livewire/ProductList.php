@@ -62,7 +62,7 @@ class ProductList extends Component
         //           ->orWhereRaw('UPPER(title) like ?', ["%{$this->search}%"]);
         // })
         // ->paginate(8);
-        return Product::orderBy('created_at', $this->sort)
+        return Product::orderBy('updated_at', $this->sort)
         ->where('status', true)
         ->when($this->activeCategory, function ($query) {
             $query->withCategory($this->category);

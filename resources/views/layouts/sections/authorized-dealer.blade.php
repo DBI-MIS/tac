@@ -18,14 +18,14 @@
                     environment and thermal energy utilization.</span>
             </a>
         </div>
-        <div class="flex-1 h-full w-full bg-cover bg-center group relative" 
+        {{-- <div class="flex-1 h-full w-full bg-cover bg-center group relative" 
         style="background-image: url('{{ asset('/GRAD_BG.webp') }}');">
             <a href="{{ route('gradProducts') }}"
             class="flex flex-col items-center justify-center h-full bg-slate-600 bg-opacity-50 text-white group-hover:bg-opacity-75 transition duration-300 ease-in-out px-12">
                 <img src="{{ asset('GRAD_LOGO_WHITE.svg')}}" alt="GRAD" class="w-[280px] sm:w-[250px] md:w-[320px] absolute inset-auto">
                 <span class="sm:bg-slate-600/50 sm:py-4 text-xs lg:text-sm mt-6 opacity-0 group-hover:opacity-100 hidden sm:block group-hover:sm:bottom-0 -bottom-1 transition-all duration-300 ease-in-out absolute px-2 sm:px-4 lg:px-6">GRAD is a large modern enterprise with the research & development, design, production, sales installation and maintenance for central air conditioning products, composite material products and solar energy products.</span>
             </a>
-        </div>
+        </div> --}}
      </div>
      <div class="flex flex-col sm:flex-row items-center justify-center h-[50vh] sm:h-[30vh] bg-gray-100 w-full">
         <div class="flex-1 h-full w-full bg-cover bg-center group relative" 
