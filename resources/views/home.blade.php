@@ -64,12 +64,14 @@
         </div>
 
      </div> --}}
-
+     <div class="lg:px-16 flex flex-col justify-center">
+        @include('layouts.sections.authorized-dealer')
+        @include('layouts.sections.featured-products')
+        @include('layouts.sections.featured-projects')
+        @include('layouts.sections.certification')
+     </div>
      {{-- @include('layouts.sections.famous-global-brand') --}}
-     @include('layouts.sections.authorized-dealer')
-     @include('layouts.sections.featured-products')
-     @include('layouts.sections.featured-projects')
-     @include('layouts.sections.certification')
+     
     
    
 

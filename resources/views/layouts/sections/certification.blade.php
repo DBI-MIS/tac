@@ -3,7 +3,7 @@
     @if(isset($mainPages['certification']))
 
     <div class="flex flex-col gap-6 border-b-[1px] dark:border-gray-100/10 border-red-600/10 ">
-        <h1 class="text-4xl font-bold ">{{ $mainPages['certification']->title }}</h1>
+        <h1 class="text-4xl font-bold text-red-700 dark:text-gray-100 ">{{ $mainPages['certification']->title }}</h1>
     </div> 
 
     <div class="p-4">{{ $mainPages['certification']->desc1 }}</div>

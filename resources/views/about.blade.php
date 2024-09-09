@@ -12,7 +12,7 @@
             <div class="lg:px-32 lg:py-14 absolute inset-0 z-10 flex flex-col justify-center gap-2 bg-gradient-to-t from-slate-900/85 to-transparent md:px-16 md:py-12 p-6">
             
             <h1 class="w-full lg:w-[80%] text-balance text-4xl md:text-6xl font-bold text-white drop-shadow-md">{{ $mainPages['about_page_title']->title }}</h1>
-            <p class="lg:w-2/3 w-full text-lg md:text-xl text-slate-300 drop-shadow-md text-balance">{{ $mainPages['about_page_title']->desc1 }}</p>
+            <p class="lg:w-2/3 w-full text-lg md:text-xl text-white drop-shadow-md text-balance">{{ $mainPages['about_page_title']->desc1 }}</p>
             
             </div>
 
@@ -26,7 +26,7 @@
 
 
     @endsection
-    <div class="flex md:flex-row flex-col gap-2">
+    <div class="flex md:flex-row flex-col gap-2 lg:px-16">
     <div class="flex flex-col mx-6">
         @include('layouts.sections.about-mission')
         @include('layouts.sections.about-vision')
