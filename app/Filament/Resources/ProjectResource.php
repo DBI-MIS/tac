@@ -124,8 +124,11 @@ class ProjectResource extends Resource
                     TextColumn::make('category')
                     ->searchable()  
                     ->sortable(),
-                ToggleColumn::make('featured'),
-                ToggleColumn::make('status')->label('Active'),
+                ToggleColumn::make('featured')
+                ->sortable(),
+                ToggleColumn::make('status')
+                ->label('Active')
+                ->sortable(),
                 TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()
@@ -140,6 +143,9 @@ class ProjectResource extends Resource
             ->defaultPaginationPageOption(50)
             ->striped()
             ->persistFiltersInSession()
+            ->persistSortInSession()
+            ->persistSearchInSession()
+            ->persistColumnSearchesInSession()
             ->filters([
                 //
             ])

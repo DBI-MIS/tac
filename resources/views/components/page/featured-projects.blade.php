@@ -12,11 +12,11 @@ cursor-pointer group hover:shadow-lg shadow-sm flex flex-col mx-auto w-full max-
         </div>
         
     </div>
-    <div class="block h-auto px-6 mt-[160px]">
+    <div class="block h-auto px-6 mt-[160px] min-h-max">
             <button
                 class="text-nowrap text-xs font-light w-min rounded-md px-2 py-1 my-2 tracking-wide text-red-800 bg-transparent group-hover:bg-red-800 border border-red-800 group-hover:text-white">{{ $project->category }}</button>
                 <div class="flex flex-row gap-1 items-center">
-            <span class="text-xl font-bold text-balance dark:text-slate-800">{{ $project->title }}</span>
+            <span class="text-md font-bold text-balance dark:text-slate-800">{{ $project->title }}</span>
             {{-- <span class="text-sm font-light text-balance dark:text-slate-800">{{ $project->getExcerpt() }}</span> --}}
             </div>
         </div>

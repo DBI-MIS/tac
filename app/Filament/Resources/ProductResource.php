@@ -204,8 +204,11 @@ class ProductResource extends Resource
                     ->numeric()
                     ->toggleable(isToggledHiddenByDefault: true)
                     ->sortable(),
-                    ToggleColumn::make('status')->label('Active'),
-                    ToggleColumn::make('featured'),
+                ToggleColumn::make('status')
+                ->label('Active')
+                ->sortable(),
+                ToggleColumn::make('featured')
+                ->sortable(),
                     
                 
                 TextColumn::make('slug')
