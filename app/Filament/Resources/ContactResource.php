@@ -4,6 +4,7 @@ namespace App\Filament\Resources;
 
 use App\Filament\Resources\ContactResource\Pages;
 use App\Filament\Resources\ContactResource\RelationManagers;
+use App\Mail\ContactMail;
 use App\Models\Contact;
 use Carbon\Carbon;
 use Filament\Forms;
@@ -19,6 +20,7 @@ use Filament\Forms\Components\Select;
 use Filament\Tables\Columns\SelectColumn;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Illuminate\Support\Facades\Mail;
 use pxlrbt\FilamentExcel\Actions\Tables\ExportBulkAction;
 use pxlrbt\FilamentExcel\Columns\Column;
 use pxlrbt\FilamentExcel\Exports\ExcelExport;
@@ -62,7 +64,10 @@ class ContactResource extends Resource
                     ->label('Email'),
                 Textarea::make('message')
                     ->label('Message or Feedback'),
-            ]);
+                    ]);
+            // ->afterCreate(function (Contact $contact) {
+            //     Mail::to(env('MAIL_FROM_ADDRESS'))->send(new ContactMail($contact));
+            //  });
     }
 
     public static function table(Table $table): Table

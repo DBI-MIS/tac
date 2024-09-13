@@ -2,6 +2,7 @@
  
 namespace App\Livewire;
 
+use App\Mail\ContactMail;
 use App\Models\Contact;
 use App\Models\Post;
 use Doctrine\DBAL\Schema\Table;
@@ -20,6 +21,7 @@ use Filament\Tables\Actions\BulkActionGroup;
 use Filament\Tables\Actions\DeleteBulkAction;
 use Filament\Tables\Columns\TextColumn;
 use Illuminate\Contracts\View\View;
+use Illuminate\Support\Facades\Mail;
 use Livewire\Component;
  
 class CreateContact extends Component implements HasForms
@@ -81,13 +83,14 @@ class CreateContact extends Component implements HasForms
     {
         $validatedData = $this->form->getState();
 
-       Contact::create($validatedData);
+       $contact = Contact::create($validatedData);
         Notification::make()
         ->title('Contact Created')
         ->success()
         ->send();
         $this->showSuccessMessage = true;
-
+        Mail::to('angelojt2024@gmail.com')->send(new ContactMail($contact));
+        // Mail::to('angelojt2024@gmail.com')->send(new ContactMail($contact));
         // $this->successMessage = 'Your message has been sent successfully!';
       
     $this->form->fill();
