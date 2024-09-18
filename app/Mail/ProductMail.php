@@ -2,7 +2,9 @@
 
 namespace App\Mail;
 
-use App\Models\Contact;
+use App\Filament\Resources\ProductResource;
+use App\Livewire\ProductResponse;
+use App\Models\Response;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
@@ -10,17 +12,16 @@ use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
 
-class ContactMail extends Mailable
+class ProductMail extends Mailable
 {
     use Queueable, SerializesModels;
-
-
 
     /**
      * Create a new message instance.
      */
-    public function __construct(public Contact $contact)
+    public function __construct(public Response $response)
     {
+        //
     }
 
     /**
@@ -29,7 +30,7 @@ class ContactMail extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: $this->contact->subject,
+            subject: 'Product Response',
         );
     }
 
@@ -39,7 +40,7 @@ class ContactMail extends Mailable
     public function content(): Content
     {
         return new Content(
-            markdown: 'emails.contact',
+            markdown: 'emails.product',
         );
     }
 
@@ -53,15 +54,15 @@ class ContactMail extends Mailable
         return [];
     }
 
-     /**
+      /**
      * Build the message.
      *
      * @return $this
      */
     public function build()
     {
-        return $this->markdown('emails.contact')
-            ->subject('New Contact Form Submission')
-            ->with('contact', $this->contact);
+        return $this->markdown('emails.product')
+            ->subject('New Product Response')
+            ->with('response', $this->response);
     }
 }

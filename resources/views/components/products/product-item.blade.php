@@ -1,4 +1,5 @@
 @props(['product'])
+
 <article class="[&:not(:last-child)]:border-b border-gray-100 pb-2 dark:border-white">
     <div class="article-body grid grid-cols-4 gap-3 mt-5 items-start cursor-pointer">
         <div class="col-span-4 flex flex-col sm:flex-row gap-2 items-start group px-5">

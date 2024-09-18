@@ -1,5 +1,12 @@
 <x-app-layout title="Team Asia Corporation">
 
+    @section('meta_title', 'Team Asia Corporation')
+    @section('meta_type', 'website')
+    @section('meta_description', 'Exclusive Distributor of TICA Products and Authorized Dealer in the Philippines')
+    {{-- @section('meta_image', (asset('/Meta.png'))) --}}
+    @section('meta_keywords', 'TICA, GGC, HVAC, HVAC Philippines, Airconditioning, Refrigeration, Ventilation Equipment ')
+
+
     @section('hero')
         <!-- Hero -->
         @if(isset($mainPages['about_page_title']))

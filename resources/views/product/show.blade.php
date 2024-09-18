@@ -2,7 +2,12 @@
 
 <x-app-layout :title="$product->title">
 
-
+    @section('meta_title', ($product->title))
+    @section('meta_type', 'website')
+    @section('meta_description', ($product->getExcerpt()))
+    @section('meta_image', $product->product_img ? asset("/storage/$product->product_img") : ' '))
+    @section('meta_keywords', $product->title . ', ' . ', HVAC Equipment, Chiller, AHU, FCU')
+    
     <article class="col-span-8 md:col-span-3 md:mt-10 mx-auto py-5 w-full h-full" style="max-width:900px">
         <div class="flex flex-col md:flex-row items-start gap-x-2 w-full">
 

@@ -89,9 +89,7 @@ class CreateContact extends Component implements HasForms
         ->success()
         ->send();
         $this->showSuccessMessage = true;
-        Mail::to('angelojt2024@gmail.com')->send(new ContactMail($contact));
-        // Mail::to('angelojt2024@gmail.com')->send(new ContactMail($contact));
-        // $this->successMessage = 'Your message has been sent successfully!';
+        Mail::to('misggc@gmail.com')->send(new ContactMail($contact));
       
     $this->form->fill();
     $this->showModal = false;

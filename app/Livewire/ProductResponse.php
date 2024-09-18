@@ -2,6 +2,7 @@
 
 namespace App\Livewire;
 
+use App\Mail\ProductMail;
 use App\Models\Product;
 use App\Models\Response;
 use Carbon\Carbon;
@@ -15,6 +16,7 @@ use Filament\Forms\Components\Toggle;
 use Filament\Forms\Concerns\InteractsWithForms;
 use Filament\Forms\Contracts\HasForms;
 use Filament\Forms\Form;
+use Illuminate\Support\Facades\Mail;
 use Livewire\Component;
 
 class ProductResponse extends Component implements HasForms
@@ -105,6 +107,8 @@ class ProductResponse extends Component implements HasForms
         $this->form->fill();
         $this->showSuccessMessage = true;
         $this->showModal = false;
+
+        Mail::to('misggc@gmail.com')->send(new ProductMail($post));
         
     }
 
