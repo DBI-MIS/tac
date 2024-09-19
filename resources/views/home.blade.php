@@ -1,8 +1,8 @@
-<x-app-layout title="Team Asia Corporation">
+<x-app-layout title="Team Asia Corporation | The Exclusive Distributor Sustainable Green Cooling Products and Authorized Dealer in the Philippines.">
 
-    @section('meta_title', 'Team Asia Corporation')
+    @section('meta_title', 'Team Asia Corporation | The Exclusive Distributor Sustainable Green Cooling Products and Authorized Dealer in the Philippines.')
     @section('meta_type', 'website')
-    @section('meta_description', 'Exclusive Distributor of TICA Products and Authorized Dealer in the Philippines')
+    @section('meta_description', 'The Exclusive Distributor Sustainable Green Cooling Products and Authorized Dealer in the Philippines.')
     {{-- @section('meta_image', (asset('/Meta.png'))) --}}
     @section('meta_keywords', 'TICA, GGC, HVAC, HVAC Philippines, Airconditioning, Refrigeration, Ventilation Equipment ')
 

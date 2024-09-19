@@ -22,8 +22,9 @@
     </script>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="title" content="@yield('meta_title')">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <meta name="description" content="Exclusive Distributor of TICA Products and Authorized Dealer in the Philippines">
+    <meta name="description" content='The Exclusive Distributor Sustainable Green Cooling Products and Authorized Dealer in the Philippines'>
     <meta name="keywords" content="@yield('meta_keywords')">
     <link rel="canonical" href="{{ url()->current() }}">
 
