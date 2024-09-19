@@ -1,4 +1,4 @@
-<div class="max-w-full w-full pb-6 pt-2 px-4 dark:text-gray-100">
+<div class="max-w-full w-full pb-6 pt-2 px-4 dark:text-gray-100" data-nosnippet>
     
     @if(isset($mainPages['dealership']))
     <div class="flex flex-col gap-6 border-b-[1px] dark:border-gray-100/10 border-red-600/10 ">

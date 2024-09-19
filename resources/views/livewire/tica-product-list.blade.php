@@ -1,4 +1,4 @@
-<div>
+<div data-nosnippet>
      <!-- Landing Section -->
        
      <section class="relative min-h-[20svh] w-full bg-fixed bg-no-repeat bg-cover bg-center bg-gray-100 rounded-xl overflow-hidden"
