@@ -10,6 +10,7 @@
         "eduard9969/blade-polaris-icons": "*",
         "filament/filament": "^3.2",
         "laravel/framework": "^11.9",
+        "laravel/pulse": "^1.2",
         "laravel/tinker": "^2.9",
         "livewire/livewire": "^3.4",
         "livewire/volt": "^1.0",
