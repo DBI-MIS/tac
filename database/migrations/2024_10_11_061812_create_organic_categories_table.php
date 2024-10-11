@@ -1,5 +1,7 @@
 <?php
 
+use App\Models\OrganicCategory;
+use App\Models\OrganicProduct;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -13,6 +15,8 @@ return new class extends Migration
     {
         Schema::create('organic_categories', function (Blueprint $table) {
             $table->id();
+            $table->foreignIdFor(OrganicProduct::class);
+            $table->foreignIdFor(OrganicCategory::class);
             $table->timestamps();
         });
     }

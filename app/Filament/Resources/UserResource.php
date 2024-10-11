@@ -78,7 +78,7 @@ class UserResource extends Resource
             ->heading('Users')
             ->defaultPaginationPageOption(25)
             ->deferLoading()
-            ->defaultSort('created_at', 'asc')
+            ->defaultSort('id', 'asc')
             ->recordUrl(null)
             ->columns([
                

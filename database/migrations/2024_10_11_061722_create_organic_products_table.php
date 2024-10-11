@@ -14,6 +14,18 @@ return new class extends Migration
         Schema::create('organic_products', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
+            $table->string('title');
+            $table->string('product_img')->nullable();
+            $table->foreignIdFor(User::class);
+            $table->boolean('status')->default(false);
+            $table->boolean('featured')->default(false);
+            $table->longText('description')->charset('binary')->nullable();
+            $table->longText('features')->charset('binary')->nullable();
+            $table->longText('technical_specs')->charset('binary')->nullable();
+            $table->string('categories')->nullable();
+            $table->string('slug')->unique()->nullable();
+            $table->foreignIdFor(Brand::class);
+            $table->softDeletes();
         });
     }
 
