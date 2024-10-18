@@ -50,10 +50,14 @@
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css"
+        integrity="sha512-q3eWabyZPc1XTCmF+8/LuE1ozpg5xxn7iO89yfSOd5/oKvyqLngoNGsx8jq92Y8eXJ/IRxQbEC+FGSYxtk2oiw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <!-- Scripts -->
     {{-- <script src="https://cdn.jsdelivr.net/npm/alpinejs" defer></script> --}}
     <script src="https://cdn.jsdelivr.net/npm/@marcreichel/alpine-typewriter/dist/alpine-typewriter.min.js" defer></script>
+    <!-- Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 
 </head>
@@ -63,9 +67,13 @@
     <div class="bg-gray-100 dark:bg-gray-600">
 
 
-        <livewire:layout.navigation />
+        {{-- <livewire:layout.navigation /> --}}
+        @livewire('navbar')
         <div class="min-h-screen">
             @yield('hero')
+            @yield('cocoking')
+            @yield('supercoco')
+            @yield('juv')
 
             <!-- Page Content -->
             <main class="max-w-[1366px] mx-auto p-6 ">

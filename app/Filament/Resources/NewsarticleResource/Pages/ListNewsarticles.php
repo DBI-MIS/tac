@@ -10,6 +10,8 @@ class ListNewsarticles extends ListRecords
 {
     protected static string $resource = NewsarticleResource::class;
 
+    protected ?string $heading = 'News Articles';
+
     protected function getHeaderActions(): array
     {
         return [

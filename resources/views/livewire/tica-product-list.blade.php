@@ -35,8 +35,12 @@
             <x-page.featured-grad-tica :product="$product" />
             @endforeach
         </div>
+      
         <div class="my-3">
             {{ $this->products->onEachSide(1)->links() }}
+        </div>
+        <div class="flex flex-col gap-6 border-t-[1px] dark:border-gray-100/10 border-red-600/10  ">
+            <span class="text-lg font-bold dark:text-white text-center m-6 cursor-pointer hover:text-red-600" href="{{ route('products.index') }}" wire:navigate>All Products</span>
         </div>
     </div>
 </div>

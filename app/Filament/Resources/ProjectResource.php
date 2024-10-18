@@ -36,9 +36,9 @@ class ProjectResource extends Resource
     protected static ?string $navigationGroup = 'Projects';
 
     public static function getNavigationBadge(): ?string
-{
-    return static::getModel()::count();
-}
+    {
+        return static::getModel()::count();
+    }
 
     protected static ?int $navigationSort = 5;
 
@@ -47,66 +47,92 @@ class ProjectResource extends Resource
         return $form
             ->schema([
                 Section::make()->schema([
-                TextInput::make('title')
-                    ->required()
-                    ->maxLength(255)
-                    ->live()
-                            ->afterStateUpdated(function (string $operation, $state, Set $set) {
-                                $set('slug', Str::slug($state));
-                            }),
-                 Select::make('brand')
-                    ->options([
-                        'GRAD Projects' => 'GRAD Projects',
-                        'TICA Projects' => 'TICA Projects',
-                    ])
-                    ->reactive()
-                    ->afterStateUpdated(fn ($state, Set $set) => $set('category', null)), // Reset category when brand changes
-                Select::make('category')
-                    ->options(function (callable $get) {
-                        $brand = $get('brand');
+                    TextInput::make('title')
+                        ->required()
+                        ->live(onBlur: true)
+                        ->afterStateUpdated(function (string $operation, $state, Set $set) {
+                            $set('slug', Str::slug($state));
+                        }),
+                    Select::make('brand')
+                        ->options([
+                            'GRAD Projects' => 'GRAD Projects',
+                            'TICA Projects' => 'TICA Projects',
+                        ])
+                        ->live(onBlur: true)
+                        ->afterStateUpdated(fn($state, Set $set) => $set('category', null)), // Reset category when brand changes
+                    Select::make('category')
+                        ->options(function (callable $get) {
+                            $brand = $get('brand');
 
-                        if ($brand === 'TICA Projects') {
-                            return [
-                                'Hospital' => 'Hospital',
-                                'Pharmaceutical Factory' => 'Pharmaceutical Factory',
-                                'Governments & Private' => 'Governments & Private',
-                                'Hotel & Shopping Center' => 'Hotel & Shopping Center',
-                                'Electronic Factory' => 'Electronic Factory',
-                            ];
-                        } elseif ($brand === 'GRAD Projects') {
-                            return [
-                                'Foreign Engineering' => 'Foreign Engineering',
-                                'Domestic Engineering' => 'Domestic Engineering',
-                            ];
-                        }
+                            if ($brand === 'TICA Projects') {
+                                return [
+                                    'Semicon' => 'Semicon',
+                                    'Chemicals' => 'Chemicals',
+                                    'F&B' => 'F&B',
+                                    'Garment Sector' => 'Garment Sector',
+                                    'Hospital' => 'Hospital',
+                                    'Hotel' => 'Hotel',
+                                    'University' => 'University',
+                                    'Research Center' => 'Research Center',
+                                    'Office' => 'Office',
+                                    'Plastic Factory' => 'Plastic Factory',
+                                    'Solar' => 'Solar',
+                                    'Medical' => 'Medical',
+                                    'Microelectronics' => 'Microelectronics',
+                                    'Commercial Building' => 'Commercial Building',
+                                    'Church' => 'Church',
+                                    'Cinema' => 'Cinema',
+                                    'Factory' => 'Factory',
+                                    'Pharmaceutical Factory' => 'Pharmaceutical Factory',
+                                    'Museum' => 'Museum',
+                                    'Restaurant' => 'Restaurant',
+                                    'Airport' => 'Airport',
+                                    'Governments & Private' => 'Governments & Private',
+                                    'Hotel & Shopping Center' => 'Hotel & Shopping Center',
+                                    'Electronic Factory' => 'Electronic Factory',
+                                ];
+                            } elseif ($brand === 'GRAD Projects') {
+                                return [
+                                    'Foreign Engineering' => 'Foreign Engineering',
+                                    'Domestic Engineering' => 'Domestic Engineering',
+                                ];
+                            }
 
-                        return [];
-                    })
-                    ->reactive(),
-                MarkdownEditor::make('description')
-                ->toolbarButtons([
-                    'blockquote',
-                    'bulletList',
-                    'orderedList',
-                ])
-                    ->columnSpanFull(),
-             
+                            return [];
+                        })
+                        ->live(onBlur: true),
+                    MarkdownEditor::make('description')
+                        ->toolbarButtons([
+                            'blockquote',
+                            'bulletList',
+                            'orderedList',
+                        ])
+                        ->columnSpanFull(),
+
                 ])->columnSpan(3),
-             
+
                 Section::make()->schema([
-                Toggle::make('featured')
-                    ->required(),
-                Toggle::make('status')
-                    ->required(),
-                FileUpload::make('project_img')
-                    ->image()->directory('projects/photos')
-                    ->nullable(),
-                TextInput::make('slug')
-                ->required()
-                ->minLength(1)->unique(ignoreRecord: true)->maxLength(100),
-                ])->columnSpan(2),
-               
-            ])->columns(5);
+                    Toggle::make('featured')
+                        ->required(),
+                    Toggle::make('status')
+                        ->required(),
+                    TextInput::make('country')
+                        ->nullable(),
+                    TextInput::make('product_type')
+                        ->nullable(),
+                    FileUpload::make('project_img')
+                        ->image()
+                        ->directory('projects/photos')
+                        ->nullable(),
+                    TextInput::make('slug')
+                        ->required()
+                        ->minLength(1)
+                        ->unique(ignoreRecord: true)->maxLength(100),
+                ])
+                    ->columnSpan(2),
+
+            ])
+            ->columns(5);
     }
 
     public static function table(Table $table): Table
@@ -119,16 +145,45 @@ class ProjectResource extends Resource
                     ->searchable()
                     ->sortable(),
                 TextColumn::make('brand')
-                    ->searchable() 
-                     ->sortable(),
-                    TextColumn::make('category')
-                    ->searchable()  
+                    ->searchable()
                     ->sortable(),
+                SelectColumn::make('category')
+                    ->options([
+                        'Semicon' => 'Semicon',
+                        'Chemicals' => 'Chemicals',
+                        'F&B' => 'F&B',
+                        'Garment Sector' => 'Garment Sector',
+                        'Hospital' => 'Hospital',
+                        'Hotel' => 'Hotel',
+                        'University' => 'University',
+                        'Research Center' => 'Research Center',
+                        'Office' => 'Office',
+                        'Plastic Factory' => 'Plastic Factory',
+                        'Solar' => 'Solar',
+                        'Medical' => 'Medical',
+                        'Microelectronics' => 'Microelectronics',
+                        'Commercial Building' => 'Commercial Building',
+                        'Church' => 'Church',
+                        'Cinema' => 'Cinema',
+                        'Factory' => 'Factory',
+                        'Pharmaceutical Factory' => 'Pharmaceutical Factory',
+                        'Museum' => 'Museum',
+                        'Restaurant' => 'Restaurant',
+                        'Airport' => 'Airport',
+                        'Governments & Private' => 'Governments & Private',
+                        'Hotel & Shopping Center' => 'Hotel & Shopping Center',
+                        'Electronic Factory' => 'Electronic Factory',
+
+                    ])
+                    ->searchable(),
+                // TextColumn::make('category')
+                //     ->searchable()
+                //     ->sortable(),
                 ToggleColumn::make('featured')
-                ->sortable(),
+                    ->sortable(),
                 ToggleColumn::make('status')
-                ->label('Active')
-                ->sortable(),
+                    ->label('Active')
+                    ->sortable(),
                 TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()
@@ -137,9 +192,9 @@ class ProjectResource extends Resource
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
-                
+
             ])
-            ->defaultSort('created_at', 'asc')
+            ->defaultSort('updated_at', 'desc')
             ->defaultPaginationPageOption(50)
             ->striped()
             ->persistFiltersInSession()

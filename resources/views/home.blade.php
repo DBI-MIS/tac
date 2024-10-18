@@ -74,6 +74,8 @@
         @include('layouts.sections.authorized-dealer')
         @include('layouts.sections.featured-products')
         @include('layouts.sections.featured-projects')
+        @include('layouts.sections.featured-organicproducts')
+        @include('layouts.sections.news-article')
         @include('layouts.sections.certification')
      </div>
      {{-- @include('layouts.sections.famous-global-brand') --}}

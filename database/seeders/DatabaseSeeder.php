@@ -37,8 +37,8 @@ class DatabaseSeeder extends Seeder
             'title' => 'Authorized Dealer',
             'section' => 'dealership',
             'img' => null,
-            'desc1' => 'We are dedicated to offering top-notch service and genuine products that meet your needs.',
-            'desc2' => 'Top-Notch Service & Genuine Products',
+            'desc1' => 'Exclusive Distributor and Authorized Dealer in the Philippines',
+            'desc2' => 'Sustainable Green Cooling Products',
         ]);
 
         Page::factory()->create([
@@ -157,6 +157,6 @@ The Coconut Industry is a sunshine industry. It is today one of the most promisi
             'desc2' => ' ',
         ]);
 
-        // Project::factory()->count(50)->create();
+        Project::factory()->count(20)->create();
     }
 }

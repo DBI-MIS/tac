@@ -41,6 +41,7 @@
         @include('layouts.sections.about-partnership')
         </div>
         @include('layouts.sections.contact')
+         {{-- @include('news.index') --}}
     </div>
     <div class="w-full ">
         <div class="hidden md:flex">

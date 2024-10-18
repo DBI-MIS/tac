@@ -25,10 +25,12 @@ class Project extends Model
         'featured',
         'status',
         'slug',
+        'country',
+        'product_type',
     ];
 
     public function getExcerpt() 
     {
-        return Str::limit(strip_tags($this->description), 100);
+        return Str::limit(strip_tags($this->description), 120);
     }
 }

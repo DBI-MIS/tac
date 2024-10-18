@@ -39,7 +39,7 @@ class ResponseResource extends Resource
         return $form
             ->schema([
                 Select::make('product_id')
-                ->relationship('product', 'title')
+                ->relationship('product', 'title',)
                 ->searchable()
                 ->required()
                 ->preload()

@@ -30,9 +30,7 @@
      <div class="flex flex-col sm:flex-row items-center justify-center h-[50vh] sm:h-[30vh] bg-gray-100 w-full">
         <div class="flex-1 h-full w-full bg-cover bg-center group relative" 
         style="background-image: url('{{ asset('/COCONUT_01.webp') }}');">
-            <a href="https://tacphils.com"
-            target="_blank"
-            rel="noreferrer"
+            <a href="{{ route('supercoco') }}"
             class="flex flex-col items-center justify-center h-full bg-slate-600 bg-opacity-50 text-white group-hover:bg-opacity-75 transition duration-300 ease-in-out px-12">
                 <img src="{{ asset('SUPERCOCO_LOGO_WHITE.svg')}}" alt="SUPERCOCO" class="h-28 md:h-36 absolute inset-auto">
                 <span class="sm:bg-slate-600/50 sm:py-4 text-xs lg:text-sm mt-6 opacity-0 group-hover:opacity-100 hidden sm:block group-hover:sm:bottom-0 -bottom-1 transition-all duration-300 ease-in-out absolute px-2 sm:px-4 lg:px-6">SUPERCOCO offers a range of all-natural, organic-certified products, including virgin coconut oil, cocoa spread, and coconut sugar, all made without any chemicals or preservatives.</span>
@@ -40,9 +38,7 @@
         </div>
         <div class="flex-1 h-full w-full bg-cover bg-center group relative" 
         style="background-image: url('{{ asset('/COCONUT_02.webp') }}');">
-        <a href="https://tacphils.com"
-        target="_blank"
-        rel="noreferrer"
+        <a href="{{ route('cocoking') }}"
             class="flex flex-col items-center justify-center h-full bg-slate-600 bg-opacity-50 text-white hover:bg-opacity-75 transition duration-300 ease-in-out px-12">
                 <img src="{{ asset('CocokingLogo_white.svg')}}" alt="COCOKING" class="h-24 md:h-32 absolute inset-auto">
                 <span class="sm:bg-slate-600/50 sm:py-4 text-xs lg:text-sm mt-6 opacity-0 group-hover:opacity-100 hidden sm:block group-hover:sm:bottom-0 -bottom-1 transition-all duration-300 ease-in-out absolute px-2 sm:px-4 lg:px-6">COCOKING offers premium virgin coconut oil products, including all-natural mouth fresheners, skin ointments, nasal sprays, MCT oil, and organic VCO.</span>
@@ -50,9 +46,7 @@
         </div>
         <div class="flex-1 h-full w-full bg-cover bg-center group relative" 
         style="background-image: url('{{ asset('/COCONUT_03.webp') }}');">
-        <a href="https://tacphils.com"
-        target="_blank"
-        rel="noreferrer"
+        <a href="{{ route('juv') }}"
             class="flex flex-col items-center justify-center h-full bg-slate-600 bg-opacity-50 text-white hover:bg-opacity-75 transition duration-300 ease-in-out px-12">
                 <img src="{{ asset('JUV_LOGO_WHITE.svg')}}" alt="JUV" class="h-20 md:h-28 absolute inset-auto">
                 <span class="sm:bg-slate-600/50 sm:py-4 text-xs lg:text-sm mt-6 opacity-0 group-hover:opacity-100 hidden sm:block group-hover:sm:bottom-0 -bottom-1 transition-all duration-300 ease-in-out absolute px-2 sm:px-4 lg:px-6">JUV is a versatile VCO product perfect for mouth fresheners, lip balms, and multi-effect base oils.</span>

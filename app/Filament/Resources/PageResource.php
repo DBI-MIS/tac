@@ -43,7 +43,8 @@ class PageResource extends Resource
                     ->required(),
                 FileUpload::make('img')
                     ->directory('pages/photos')
-                    ->image(),
+                    ->image()
+                    ->downloadable(),
                 Select::make('section')
                 ->options([
                     'hero' => 'hero',
@@ -56,7 +57,9 @@ class PageResource extends Resource
                     'about_page_office' => 'about_page_office',
                     'about_page_showroom' => 'about_page_showroom',
                     'about_page_singapore' => 'about_page_singapore',
-                    'about_page_shanghai' => 'about_page_shanghai',
+                    'filler_page_vco' => 'filler_page_vco',
+                    'filler_page_video' => 'filler_page_video',
+                    'filler_page_factory' => 'filler_page_factory',
                 ]),
                 MarkdownEditor::make('desc1'),
                 MarkdownEditor::make('desc2'),
@@ -86,6 +89,9 @@ class PageResource extends Resource
                     'about_page_showroom' => 'about_page_showroom',
                     'about_page_singapore' => 'about_page_singapore',
                     'about_page_shanghai' => 'about_page_shanghai',
+                    'filler_page_vco' => 'filler_page_vco',
+                    'filler_page_video' => 'filler_page_video',
+                    'filler_page_factory' => 'filler_page_factory',
                 ]),
             ])
             ->filters([

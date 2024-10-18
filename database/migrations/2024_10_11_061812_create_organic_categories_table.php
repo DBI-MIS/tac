@@ -15,8 +15,10 @@ return new class extends Migration
     {
         Schema::create('organic_categories', function (Blueprint $table) {
             $table->id();
-            $table->foreignIdFor(OrganicProduct::class);
-            $table->foreignIdFor(OrganicCategory::class);
+            $table->string('title');
+            $table->string('slug');
+            $table->string('text_color');
+            $table->string('bg_color');
             $table->timestamps();
         });
     }

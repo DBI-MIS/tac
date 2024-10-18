@@ -10,18 +10,18 @@ class TicaProjectList extends Component
 {
     public $category;
 
-    public function mount($category = 'Hospital')
+    public function mount($category = 'Semicon')
     {
         $this->category = $category;
     } 
     #[Computed()]
     public function projects()
     {
-        return Project::orderBy('created_at')
+        return Project::orderBy('updated_at', 'desc')
             ->where('status', true)
             ->where('brand', "TICA Projects")
             ->where('category', $this->category)
-            ->paginate(8);
+            ->paginate(6);
     }
     public function render()
     {

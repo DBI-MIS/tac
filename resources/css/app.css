@@ -1,3 +1,53 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+#social-links {
+    @apply m-0 max-w-[500px];
+}
+
+#social-links ul {
+    @apply list-none p-0;
+}
+
+#social-links ul li {
+    @apply inline-block;
+}
+
+#social-links ul li a {
+    @apply p-[5px] m-[1px] text-[26px];
+}
+
+#social-links #my-id {
+    @apply hover:text-3xl transition-transform ease-in-out cursor-pointer hover:text-red-800;
+}
+
+.custom-scrollbar {
+    @apply overflow-scroll; /* Tailwind utility for scrolling */
+}
+
+/* Webkit scrollbar styling */
+.custom-scrollbar::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+    @apply bg-red-600; /* Tailwind red color for scrollbar thumb */
+    border-radius: 9999px; /* Fully rounded */
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+    @apply bg-gray-200; /* Background color for the track */
+}
+
+/* Firefox scrollbar styling */
+.custom-scrollbar {
+    scrollbar-width: thin;
+    scrollbar-color: #dc2626 #e5e7eb; /* Red scrollbar thumb and gray track */
+}
+
+
+
+
+

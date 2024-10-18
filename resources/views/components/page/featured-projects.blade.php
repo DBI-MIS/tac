@@ -10,7 +10,6 @@ cursor-pointer group hover:shadow-lg shadow-sm flex flex-col mx-auto w-full max-
             src="/storage/{{ $project->project_img }}" alt="{{ $project->title }}">
             {{-- <img class="w-auto h-auto " src="{{ $project->img }}" alt=""> --}}
         </div>
-        
     </div>
     <div class="block h-auto px-6 mt-[160px] min-h-max">
             <button

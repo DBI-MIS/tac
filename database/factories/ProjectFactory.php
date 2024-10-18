@@ -19,88 +19,110 @@ class ProjectFactory extends Factory
     {
 
         $titles = [
-            'Uzbekistan - Akfa Medline Clinic, Uzbekistan',
+            'Akfa Medline Clinic',
             'Villa, Karachi, Pakistan',
             'Maldives Seaplane Airport',
             'Puertos Offices Argentina',
-            'Argentina - Pilará Residence',
-            'Cambodia - Integrating Hotel, Cambodia',
-            'Thailand- Huanji Gene Technology',
-            'Russia - Biocad Biopharmaceutical Factory, Russia',
-            'Nipro - Indonesia',
-            'Uzbekistan - ZAMIN BIO HEALTH, Uzbekistan',
-            'Uzbekistan - Merrymed Farm Factory, Uzbekistan',
-            'Europe - Pharmaceutical plant',
-            'Ukraine - Citi Doctor, Ukraine',
-            'Indonesia-Netherland Embassy',
-            'Indonesia - National Police Headquarters',
+            'Pilará Residence',
+            'Integrating Hotel',
+            'Huanji Gene Technology',
+            'Biocad Biopharmaceutical Factory',
+            'ZAMIN BIO HEALTH',
+            'Merrymed Farm Factory',
+            'Pharmaceutical plant',
+            'Citi Doctor',
+            'Netherland Embassy',
+            'National Police Headquarters',
             'Maldives Seaplane Airpor',
-            'Argentina - Mendoza Government House Argentina',
-            'Libya - Tripoli International Airport',
-            'Vietnam - Museum Cao Bang',
-            'Europe - Opera and Ballet Theatre, 1864, 1959-1961',
-            'Tashkent - Tashkent Berinuy Ice Rink',
-            'Indonesia - Cibinong City Mall',
-            'Argentina - TUCSON Restaurant',
-            'Uzbekistan - Anor Plaza Shopping Center, Uzbekistan',
-            'Argentina - DAC Center',
-            'Indonesia - Cinema Platinum',
-            'Indonesia - Plaza Sukaramai',
-            'Philippines - SM City Shopping Mall, Philippines',
-            'Indonesia - Conrad Resort Bali',
-            'Basra - Basra Mall Kourah',
-            'Sohar - Citcy Center Sohar',
-            'Electronic Factory/ Industrial cooling 10',
-            'Vietnam - Imperial Star Solar Energy',
-            'Vietnam- Foxconn CTTV',
-            'Vietnam  - Qisda',
-            'Vietnam - Neweb',
-            'Vietnam - Amphenol',
-            'Cambodia - Imperial Star ,Solar Energy',
-            'Cambodia - BARDON Energy',
-            'Viet Nam - Gemtek Ha Nam',
-            'Viet Nam - Olam',
-            'Romania - Strada Fagului Plant',
+            'Mendoza Government House Argentina',
+            'Tripoli International Airport',
+            'Museum Cao Bang',
+            'Tashkent Berinuy Ice Rink',
+            'Cibinong City Mall',
+            'TUCSON Restaurant',
+            'Anor Plaza Shopping Center',
+            'DAC Center',
+            'Cinema Platinum',
+            'Plaza Sukaramai',
+            'SM City Shopping Mall',
+            'Conrad Resort Bali',
+            'Basra Mall Kourah',
+            'Citcy Center Sohar',
+            'Imperial Star',
+            'Foxconn CTTV',
+            'Qisda',
+            'Neweb',
+            'Amphenol',
+            'Imperial Star',
+            'BARDON Energy',
+            'Gemtek Ha Nam',
+            'Olam',
+            'Strada Fagului Plant',
                                     
 
         ];
-        $brands = [
-            'GRAD Projects',
-            'TICA Projects'
-        ];
 
-        $brand = $this->faker->randomElement($brands);
-
-        $gradCategories = [
-            'Domestic Engineering',
-            'Foreign Engineering',
-        ];
+        $brand = 'TICA Projects';
 
         $ticaCategories = [
-            'Hospital',
-            'Pharmaceutical Factory',
-            'Governments & Private',
-            'Hotel & Shopping Center',
-            'Electronic Factory',
+             'Semicon',
+             'Chemicals',
+             'F&B',
+             'Garment Sector',
+             'Hospital',
+             'Hotel',
+             'University',
+             'Research Center',
+             'Office',
+             'Plastic Factory',
+             'Solar',
+             'Medical',
+             'Microelectronics',
+             'Commercial Building',
+             'Church',
+             'Cinema',
+             'Factory',
+             'Pharmaceutical Factory',
+             'Museum',
+             'Restaurant',
+             'Airport',
+             'Governments & Private',
+             'Hotel & Shopping Center',
+             'Electronic Factory',
         ];
 
-        if ($brand === 'GRAD Projects') {
-            $category = $this->faker->randomElement($gradCategories);
-        } else {
-            $category = $this->faker->randomElement($ticaCategories);
-        }
+     
+        $category = $this->faker->randomElement($ticaCategories);
+    
+        // do {
+        //     $title = $this->faker->randomElement($titles);
+        // } while (Project::where('title', $title)->exists());
 
-        $title = $this->faker->sentence;
+        do {
+            $title = $this->faker->unique->randomElement($titles);
+            
+            $slug = Str::slug($title);
+            
+            $originalSlug = $slug;
+            $counter = 1;
+            
+            while (Project::where('slug', $slug)->exists()) {
+                $slug = $originalSlug . '-' . $counter++;
+            }
         
+        } while (Project::where('title', $title)->exists());
+
         return [
             'title' => $title,
             'description' => $this->faker->paragraph,
             'project_img' => $this->faker->imageUrl(640, 480, 'project', true),
             'brand' => $brand,
             'category' => $category,
-            'featured' => $this->faker->boolean,
-            'status' => $this->faker->boolean,
-            'slug' => Str::slug($title),
+            'featured' => true,
+            'status' => true,
+            'slug' =>  $slug,
+            'country' => 'TEST Country',
+            'product_type' => 'TEST PRODUCT TYPE x 100',
             'created_at' => now(),
             'updated_at' => now(),
         ];

@@ -3,6 +3,7 @@
 namespace App\Livewire;
 
 use App\Mail\ProductMail;
+use App\Models\OrganicProduct;
 use App\Models\Product;
 use App\Models\Response;
 use Carbon\Carbon;
@@ -55,7 +56,7 @@ class ProductResponse extends Component implements HasForms
     
     public function mount($product_id): void
     {
-        $product = Product::find($product_id);
+        $product = OrganicProduct::find($product_id);
         $this->product_id = $product->id;
         $this->product_name = $product->name;
         

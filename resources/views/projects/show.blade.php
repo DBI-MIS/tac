@@ -56,15 +56,24 @@
                         {{-- src="{{ $project->project_img }}" --}} alt="{{ $project->title }}">
                 </div>
                 <!-- Project Info -->
-                <div class="mr-20 ">
+                <div class="text-balance ">
                     <h1 class="text-2xl font-bold leading-8 tracking-wide text-red-800 dark:text-red-400 mb-4">
                         {{ $project->title }}</h1>
-                    <p class="hidden sm:block text-lg mb-2 dark:text-white "><strong>Category:</strong>
+                    {{-- <p class="hidden sm:block text-lg mb-2 dark:text-white "><strong>Category:</strong>
                         {{ $project->category }}</p>
                     <p class="block sm:hidden text-lg mb-2 dark:text-white"><strong>Brand:</strong>
-                        {{ $project->brand }}</p>
+                        {{ $project->brand }}</p> --}}
+                   
                     <hr>
-                    <p class=" text-md sm:text-xl my-4 leading-8 dark:text-white ">{{ $project->description }}</p>
+                    <p class=" text-md sm:text-lg my-4 leading-8 dark:text-white ">{{ $project->description }}</p>
+                    @if($project->country)
+                    <p class="block text-lg mb-2 dark:text-white "><strong>Country:</strong>
+                        {{ $project->country }}</p>
+                    @endif
+                    @if($project->product_type)
+                    <p class="block text-lg mb-2 dark:text-white "><strong>Product Type:</strong>
+                        {{ $project->product_type }}</p>
+                    @endif
                 </div>
             </div>
         </div>

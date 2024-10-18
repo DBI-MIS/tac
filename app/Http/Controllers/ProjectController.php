@@ -32,7 +32,7 @@ class ProjectController extends Controller
         return view('projects.grad', ['category' => $category]);
     }
     
-    public function tica($category = 'Hospital'){
+    public function tica($category = 'Semicon'){
         return view('projects.tica', ['category' => $category]);
     }
 

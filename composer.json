@@ -9,6 +9,7 @@
         "blade-ui-kit/blade-heroicons": "^2.4",
         "eduard9969/blade-polaris-icons": "*",
         "filament/filament": "^3.2",
+        "jorenvanhocht/laravel-share": "^4.2",
         "laravel/framework": "^11.9",
         "laravel/pulse": "^1.2",
         "laravel/tinker": "^2.9",
@@ -16,7 +17,8 @@
         "livewire/volt": "^1.0",
         "mallardduck/blade-boxicons": "^2.4",
         "postare/blade-mdi": "*",
-        "pxlrbt/filament-excel": "^2.3"
+        "pxlrbt/filament-excel": "^2.3",
+        "spatie/laravel-markdown": "^2.5"
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.13",

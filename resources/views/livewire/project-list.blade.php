@@ -17,21 +17,21 @@
             
         </div>
         <div class="mx-auto px-4 py-10 sm:px-6 lg:max-w-9xl lg:px-8">
-            <div class="flex flex-col gap-6 border-b-[1px] dark:border-gray-100/10 border-red-600/10 ">
-                <h1 class="text-2xl font-bold dark:text-white">Featured Projects</h1>
+            <div class="flex flex-col gap-6 border-b-[1px] dark:border-gray-100/10 border-red-600/10 mb-4">
+                <h1 class="text-2xl font-bold dark:text-white">Reference Projects</h1>
             </div>
             
-            <div class="m-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
+            <div class="my-6 grid grid-cols-1 xl:grid-cols-2 gap-2">
                 @if ($this->projects->count() == 0)
-                    <div class="col-span-full text-center text-gray-500 dark:text-white">No Projects to display.</div>
+                    <div class="w-full text-center text-gray-500 dark:text-white">No Projects to display.</div>
                 @endif
 
                 @foreach($this->projects as $project)
-                    <x-projects.project-item :project="$project"/>
+                    <x-projects.featured-project-item :project="$project"/>
                 @endforeach
             </div>
             <div class="flex flex-col gap-6 border-t-[1px] dark:border-gray-100/10 border-red-600/10  ">
-                <h1 class="text-lg font-bold dark:text-white text-center m-6 cursor-pointer" href="{{ route('projects.tica') }}" wire:navigate>All Projects</h1>
+                <span class="text-lg font-bold dark:text-white text-center m-6 cursor-pointer hover:text-red-600" href="{{ route('projects.tica') }}" wire:navigate>All Projects</span>
             </div>
         </div>
 </div>

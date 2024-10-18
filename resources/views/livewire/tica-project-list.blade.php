@@ -19,56 +19,32 @@
             </div>
 
         </section>
-        <!-- Navigation Section -->
-        <div class="w-full mx-auto lg:max-w-7xl">
-            <nav class="flex flex-col md:flex-row sm:justify-center text-center gap-2 flex-grow-1">
-                <a href="{{ route('projects.tica', ['category' => 'Hospital']) }}" 
-                   class="text-md font-semibold  {{ $category === 'Hospital' ? 'border-b border-lg border-red-600 text-red-600' : 
-                   'text-gray-800 dark:text-white hover:text-red-600 hover:border-b hover:border-lg' }}
-                   transition duration-300 ease-in-out py-2 px-4 border-gray-200 ">
-                   Hospital
-                </a>
-                <a href="{{ route('projects.tica', ['category' => 'Pharmaceutical Factory']) }}" 
-                   class="text-md font-semibold  {{ $category === 'Pharmaceutical Factory' ? 'border-b border-lg border-red-600 text-red-600' : 
-                   'text-gray-800 dark:text-white hover:text-red-600 hover:border-b hover:border-lg' }}
-                   transition duration-300 ease-in-out py-2 px-4 border-gray-200 ">
-                   Pharmaceutical Factory
-                </a>
-                <a href="{{ route('projects.tica', ['category' => 'Governments & Private']) }}" 
-                   class="text-md font-semibold  {{ $category === 'Governments & Private' ? 'border-b border-lg border-red-600 text-red-600' : 
-                    'text-gray-800 dark:text-white hover:text-red-600 hover:border-b hover:border-lg' }}
-                   transition duration-300 ease-in-out py-2 px-4 border-gray-200 ">
-                   Governments & Private
-                </a>
-                <a href="{{ route('projects.tica', ['category' => 'Hotel & Shopping Center']) }}" 
-                   class="text-md font-semibold  {{ $category === 'Hotel & Shopping Center' ? 'border-b border-lg border-red-600 text-red-600' : 
-                    'text-gray-800 dark:text-white hover:text-red-600 hover:border-b hover:border-lg' }}
-                   transition duration-300 ease-in-out py-2 px-4 border-gray-200 ">
-                   Hotel & Shopping Center
-                </a>
-                <a href="{{ route('projects.tica', ['category' => 'Electronic Factory']) }}" 
-                   class="text-md font-semibold  {{ $category === 'Electronic Factory' ? 'border-b border-lg border-red-600 text-red-600' : 
-                    'text-gray-800 dark:text-white hover:text-red-600 hover:border-b hover:border-lg' }}
-                   transition duration-300 ease-in-out py-2 px-4 border-gray-200 ">
-                   Electronic Factory
-                </a>
-            </nav>
-        </div>
+        
+        
         
        <!-- tica project list Section -->
-       <div class="mx-auto px-4 py-5 sm:px-6 sm:py-12 lg:max-w-9xl lg:px-8">
-        <div class="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
+       <div class=" px-4 py-5 sm:px-6 sm:py-12 lg:max-w-9xl lg:px-8 flex flex-col md:flex-row w-full justify-between">
+        <div class="mt-6 order-2 md:order-1 w-full px-2 py-2">
+            <hr class="mb-2 md:hidden">
                 @if ($this->projects->count() == 0)
-                    <div class="col-span-full text-center text-gray-500">No Projects to display.</div>
+                    <div class="w-full text-center text-gray-500">No Projects to display.</div>
                 @endif
-
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
                 @foreach($this->projects as $project)
                 <x-projects.project-item-category :project="$project"/>
                 @endforeach
-            </div>
+                </div>  
+                <div class="my-3">
+                    {{ $this->projects->onEachSide(1)->links() }}
+                </div>
+        </div>
 
-            <div class="my-3">
-                {{ $this->projects->onEachSide(1)->links() }}
+            <div class="flex flex-wrap items-start order-1 md:order-2 md:max-w-[300px]">
+                <x-projects.nav-category :category="$category"/>
             </div>
         </div>
+
+        <!-- Navigation Section -->
+        
+    
     </div>
