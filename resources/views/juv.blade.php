@@ -1,18 +1,37 @@
 <x-app-layout title="JUV">
+
+    {{-- @section('maintenance') 
+    <div class="flex items-center justify-center h-[75svh] ">
+        <div class=" text-white rounded-lg shadow-lg p-10 text-center bg-red-600 dark:bg-gray-800">
+            <div class="text-4xl font-bold mb-4 flex flex-col sm:flex-row items-center gap-2">
+                <span>🚧</span>
+                <span>Page Under Construction</span>
+                <span>🚧</span>
+            </div>
+            <p class="text-lg">We're working hard to bring you something amazing. Stay tuned!</p>
+            <div class="mt-6">
+                <a wire:navigate href="{{ route('home') }}" class="inline-block bg-white dark:bg-red-600 text-red-600 font-semibold py-2 px-4 rounded hover:bg-red-900 hover:text-white dark:text-white transition duration-200 animate-bounce">
+                    Go Back Home
+                </a>
+            </div>
+        </div>
+    </div>
+    @endsection --}}
+
     @section('juv')
         <section
             class="w-full min-h-[50vh] bg-cover bg-center flex flex-col md:flex-row items-center justify-between py-6 lg:px-32 md:px-16 shadow-lg shadow-gray-200 dark:shadow-gray-800 ">
             <div class="max-w-3xl order-2 md:order-1 text-center md:text-left w-[80%]">
                 <h2
                     class="text-balance text-4xl lg:text-7xl font-bold tracking-widest leading-tight drop-shadow-md text-green-800 dark:text-white">
-                    {{ $juvPages['headline']->title }}
+                    {{ $juvPages['headline']->title ?? 'No Data' }}
                 </h2>
                 <h2
                     class="text-balance text-4xl lg:text-5xl font-bold tracking-wide leading-tight drop-shadow-md text-green-800 dark:text-white">
-                    {{ $juvPages['headline']->description1 }}
+                    {{ $juvPages['headline']->description1 ?? 'No Data' }}
                 </h2>
                 <p class="mt-4 text-lg md:text-2xl text-green-800 drop-shadow-md dark:text-white">
-                    {{ $juvPages['subheadline']->title }}
+                    {{ $juvPages['subheadline']->title ?? 'No Data' }}
                 </p>
 
                 <div class="py-4 w-max mx-auto md:mx-0 animate-minimal-bounce">

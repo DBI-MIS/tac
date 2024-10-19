@@ -10,6 +10,8 @@ class ListJuvpages extends ListRecords
 {
     protected static string $resource = JuvpageResource::class;
 
+    protected ?string $heading = 'JUV Page';
+
     protected function getHeaderActions(): array
     {
         return [

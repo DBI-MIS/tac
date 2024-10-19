@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Cocoking;
+use App\Models\Cocokingpage;
 use App\Models\OrganicProduct;
 use App\Models\Page;
+use App\Models\TacPage;
 use Illuminate\Http\Request;
 
 class CocokingController extends Controller
@@ -19,6 +20,7 @@ class CocokingController extends Controller
         $sections = [
             'headline',
             'subheadline',
+            'body',
             'choose_cocoking1',
             'choose_cocoking2',
             'choose_cocoking3',
@@ -27,26 +29,20 @@ class CocokingController extends Controller
             'choose_cocoking6',
             'cocoking_bottom',
             'introduction',
-            'product_range1',
-            'product_range2',
-            'product_range3',
-            'product_range4',
-            'product_range5',
-            'testimonials',
     
 
         ];
 
         $cocoPages = [];
 
-        $testimonials = Cocoking::orderBy('order', 'desc')
+        $testimonials = TacPage::orderBy('order', 'desc')
         ->where('section', 'testimonials')
         ->take(4)
         ->get();
 
         
         foreach($sections as $section){
-            $cocoPages[$section] = Cocoking::where('section', $section)
+            $cocoPages[$section] = Cocokingpage::where('section', $section)
             ->orderBy('order', 'desc')
             ->latest('created_at')
             ->first();
@@ -81,7 +77,6 @@ class CocokingController extends Controller
             'description',
             'brand_id',
         ]);
-        // dd($featuredCocoking );
         
         return view('cocoking',[
             'cocoPages' => $cocoPages,

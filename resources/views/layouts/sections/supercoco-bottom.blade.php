@@ -1,16 +1,17 @@
 <section
-    class="w-full my-16 min-h-[50vh]  bg-cover bg-center flex items-center justify-between rounded-xl overflow-hidden"
-    style="background-image: url({{ $superPages['supercoco_bottom']->img_page ? asset('storage/' . $superPages['supercoco_bottom']->img_page) : asset('/default-slide-2.webp') }})">
+    class="w-full my-16 min-h-[50vh] bg-cover bg-center flex items-center justify-between rounded-xl overflow-hidden"
+    style="background-image: url('{{ $superPages['supercoco_bottom']?->img_page ? asset('storage/' . $superPages['supercoco_bottom']->img_page) : asset('/default-slide-2.webp') }}')">
+
 
     <div
         class="grid grid-cols-1 lg:grid-cols-3 gap-2 content-center items-center lg:px-32 lg:py-14 md:px-16 md:py-12 p-6">
 
         <div class="col-span-2 ">
             <h1 class="text-3xl lg:text-5xl font-bold  tracking-wide leading-tight drop-shadow-md text-white ">
-                {{ $superPages['supercoco_bottom']->title }}
+                {{ $superPages['supercoco_bottom']->title ?? 'No Data' }}
             </h1>
             <p class="max-w-xl mt-4 text-md md:text-lg  text-white drop-shadow-md">
-                {{ $superPages['supercoco_bottom']->description1 }}
+                {{ $superPages['supercoco_bottom']->description1 ?? 'No Data' }}
             </p>
 
             <div class="mt-0 md:mt-10 w-full h-auto py-8 flex items-center justify-start gap-4 flex-wrap">

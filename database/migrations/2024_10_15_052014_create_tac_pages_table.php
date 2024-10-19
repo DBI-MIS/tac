@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('section')->nullable();
             $table->longText('description1')->nullable()->charset('binary');
             $table->longText('description2')->nullable()->charset('binary');
+            $table->integer('order')->default(0);
             $table->timestamps();
         });
     }

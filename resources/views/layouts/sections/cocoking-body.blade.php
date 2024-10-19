@@ -3,7 +3,7 @@
         <div class="relative w-full max-w-full bg-green-800 rounded-t-xl text-white">
             <div class="flex flex-row justify-between items-center px-6 py-6">
                 <h2 class=" text-2xl md:text-3xl lg:text-4xl font-bold  ">
-                {{ $cocoPages['introduction']->title }}
+                {{ $cocoPages['introduction']->title ?? 'No Data' }}
             </h2>
             <abbr title="View All">
                 <x-icon-all-products
@@ -12,7 +12,7 @@
             </abbr>
         </div>
         <p class="bg-yellow-200 py-3 text-pretty px-6 text-green-600">
-                <span class="text-base text-balance ">{{ $cocoPages['introduction']->description1 }}</span>
+                <span class="text-base text-balance ">{{ $cocoPages['introduction']->description1 ?? 'No Data' }}</span>
             </p>
 
         </div>

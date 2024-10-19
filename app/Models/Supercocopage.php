@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use Spatie\LaravelMarkdown\MarkdownRenderer;
 use Illuminate\Support\Str;
 
-class Cocoking extends Model
+class Supercocopage extends Model
 {
     use HasFactory;
 

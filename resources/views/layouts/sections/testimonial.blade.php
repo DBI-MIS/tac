@@ -24,7 +24,7 @@
                 <p
                     class="text-lg leading-8 max-h-24 overflow-hidden transition-all duration-500 ease-in-out transform group-hover:max-h-[600px] p-6">
                     <x-icon-quote-start class="size-5 inline-block -translate-y-2 " />
-                    {{ $testimonial->description1 }}
+                    {{ $testimonial->description1 ?? 'No Data' }}
                     <x-icon-quote-end class="size-5 mx-auto my-4" />
                 </p>
                 
@@ -32,11 +32,11 @@
                 shadow-[0px_-15px_15px_-3px_rgba(0,0,0,0.1)] 
                 {{-- shadow-lg --}}
                 w-full">
-                    <img src="{{ asset('storage/' . $testimonial->img_page) }}"
+                    <img src="{{ asset('storage/' . $testimonial->img_page) ?? 'No Data' }}"
                         class="w-14 h-14 rounded-full transition-all duration-500 ease-in-out transform group-hover:scale-110"
                         alt="Customer">
                     <div class="grid gap-1">
-                        <h5 class="font-medium">{{ $testimonial->title }}</h5>
+                        <h5 class="font-medium">{{ $testimonial->title ?? 'No Data' }}</h5>
                     </div>
                 </div>
             </div>

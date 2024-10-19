@@ -75,33 +75,16 @@ class TacPageResource extends Resource
                 Section::make()->schema([
                     Select::make('section')
                     ->options([
-                        'headline' => 'Headline',
-                        'body' => 'Body',
-                        'subheadline' => 'Subheadline',
-                        'introduction' => 'Introduction',
-                        'testimonials' => 'Testimonials',
-                        'contact' => 'Contact',
-                        'features' => 'Features',
-                        'supercoco' => 'Supercoco',
-                        'product_range1' => 'product range1',
-                        'product_range2' => 'product_range2',
-                        'product_range3' => 'product range3',
-                        'product_range4' => 'product_range4',
-                        'product_range5' => 'product_range5',
-                        'choose_supercoco1' => 'choose supercoco1',
-                        'choose_supercoco2' => 'choose supercoco2',
-                        'choose_supercoco3' => 'choose supercoco3',
-                        'choose_supercoco4' => 'choose supercoco4',
-                        'choose_supercoco5' => 'choose supercoco5',
-                        'supercoco_bottom' => 'supercoco_bottom',
-                        'testimonial1' => 'testimonial1',
-                        'testimonial2' => 'testimonial2',
-                        'testimonial3' => 'testimonial3',
-                       
+                        'testimonials' => 'testimonials',
+                  
                     ]),
                     FileUpload::make('img_page')
                     ->image()->directory('pages/tac')
                     ->nullable(),
+                    TextInput::make('order')
+                    ->numeric()
+                    ->required()
+                    ->default(0),
 
                 ])->columnSpan(2),
                

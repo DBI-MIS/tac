@@ -27,6 +27,10 @@ return new class extends Migration
             $table->string('categories')->nullable();
             $table->string('slug')->unique()->nullable();
             $table->foreignIdFor(Brand::class);
+            $table->longText('benefits')->charset('binary')->nullable();
+            $table->longText('storage')->charset('binary')->nullable();
+            $table->longText('packaging')->charset('binary')->nullable();
+            $table->longText('usage')->charset('binary')->nullable();
             $table->softDeletes();
         });
     }

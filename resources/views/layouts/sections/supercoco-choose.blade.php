@@ -10,8 +10,8 @@
                 <img src="{{asset('best-seller.png')}}" alt="Mouth Freshener" class="p-2 min-h-6">
             </div>
             <div class="flex flex-col min-w-40">
-                <p class="text-xl font-bold mb-2  ">  {{$superPages['choose_supercoco1']->title}}</p>
-                <p class="text-gray-600 text-balance dark:text-white">{{$superPages['choose_supercoco1']->description1}}</p>
+                <p class="text-xl font-bold mb-2  ">  {{$superPages['choose_supercoco1']->title ?? 'No Data'}}</p>
+                <p class="text-gray-600 text-balance dark:text-white">{{$superPages['choose_supercoco1']->description1 ?? 'No Data'}}</p>
 
             </div>
             
@@ -22,8 +22,8 @@
                 <img src="{{asset('natural.png')}}" alt="Mouth Freshener" class="p-2 min-h-6">
             </div>
             <div class="flex flex-col min-w-40">
-                <p class="text-xl font-bold mb-2  ">  {{$superPages['choose_supercoco2']->title}}</p>
-                <p class="text-gray-600 text-balance dark:text-white">{{$superPages['choose_supercoco2']->description1}}</p>
+                <p class="text-xl font-bold mb-2  ">  {{$superPages['choose_supercoco2']->title ?? 'No Data'}}</p>
+                <p class="text-gray-600 text-balance dark:text-white">{{$superPages['choose_supercoco2']->description1 ?? 'No Data'}}</p>
 
             </div>
             
@@ -33,8 +33,8 @@
                 <img src="{{asset('nontoxic.png')}}" alt="Mouth Freshener" class="p-2 min-h-6">
             </div>
             <div class="flex flex-col  min-w-40">
-                <p class="text-xl font-bold mb-2  ">  {{$superPages['choose_supercoco3']->title}}</p>
-                <p class="text-gray-600 text-balance dark:text-white">{{$superPages['choose_supercoco3']->description1}}</p>
+                <p class="text-xl font-bold mb-2  ">  {{$superPages['choose_supercoco3']->title ?? 'No Data'}}</p>
+                <p class="text-gray-600 text-balance dark:text-white">{{$superPages['choose_supercoco3']->description1 ?? 'No Data'}}</p>
 
             </div>
             

@@ -2,9 +2,9 @@
 
 namespace App\Filament\Resources;
 
-use App\Filament\Resources\CocokingResource\Pages;
-use App\Filament\Resources\CocokingResource\RelationManagers;
-use App\Models\Cocoking;
+use App\Filament\Resources\SupercocopageResource\Pages;
+use App\Filament\Resources\SupercocopageResource\RelationManagers;
+use App\Models\Supercocopage;
 use Filament\Forms;
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\MarkdownEditor;
@@ -21,12 +21,15 @@ use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 
-class CocokingResource extends Resource
+class SupercocopageResource extends Resource
 {
-    protected static ?string $model = Cocoking::class;
+    protected static ?string $model = Supercocopage::class;
 
     protected static ?string $navigationGroup = 'Pages';
+
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+
+    protected static ?string $navigationLabel = "Supercoco Page";
 
     public static function form(Form $form): Form
     {
@@ -80,29 +83,15 @@ class CocokingResource extends Resource
                         'body' => 'Body',
                         'subheadline' => 'Subheadline',
                         'introduction' => 'Introduction',
-                        'testimonials' => 'Testimonials',
                         'contact' => 'Contact',
                         'features' => 'Features',
-                        'supercoco' => 'Supercoco',
-                        'product_range1' => 'product range1',
-                        'product_range2' => 'product_range2',
-                        'product_range3' => 'product range3',
-                        'product_range4' => 'product_range4',
-                        'product_range5' => 'product_range5',
-                        'choose_cocoking1' => 'choose cocoking1',
-                        'choose_cocoking2' => 'choose cocoking2',
-                        'choose_cocoking3' => 'choose cocoking3',
-                        'choose_cocoking4' => 'choose cocoking4',
-                        'choose_cocoking5' => 'choose cocoking5',
-                        'choose_cocoking6' => 'choose cocoking6',
-                        'cocoking_bottom' => 'cocoking_bottom',
-                        'testimonials' => 'testimonials',
-                        'testimonial2' => 'testimonial2',
-                        'testimonial3' => 'testimonial3',
-                        'testimonial4' => 'testimonial4',
-                        'testimonial5' => 'testimonial5',
-                        'testimonial6' => 'testimonial6',
-                       
+                        'choose_supercoco1' => 'choose supercoco1',
+                        'choose_supercoco2' => 'choose supercoco2',
+                        'choose_supercoco3' => 'choose supercoco3',
+                        'choose_supercoco4' => 'choose supercoco4',
+                        'choose_supercoco5' => 'choose supercoco5',
+                        'choose_supercoco6' => 'choose supercoco6',
+                        'supercoco_bottom' => 'supercoco_bottom',
                     ]),
                     FileUpload::make('img_page')
                     ->image()->directory('pages/tac')
@@ -136,25 +125,13 @@ class CocokingResource extends Resource
                         'introduction' => 'Introduction',
                         'contact' => 'Contact',
                         'features' => 'Features',
-                        'supercoco' => 'Supercoco',
-                        'product_range1' => 'product range1',
-                        'product_range2' => 'product_range2',
-                        'product_range3' => 'product range3',
-                        'product_range4' => 'product_range4',
-                        'product_range5' => 'product_range5',
-                        'choose_cocoking1' => 'choose cocoking1',
-                        'choose_cocoking2' => 'choose cocoking2',
-                        'choose_cocoking3' => 'choose cocoking3',
-                        'choose_cocoking4' => 'choose cocoking4',
-                        'choose_cocoking5' => 'choose cocoking5',
-                        'choose_cocoking6' => 'choose cocoking6',
-                        'cocoking_bottom' => 'cocoking_bottom',
-                        'testimonials' => 'testimonials',
-                        'testimonial2' => 'testimonial2',
-                        'testimonial3' => 'testimonial3',
-                        'testimonial4' => 'testimonial4',
-                        'testimonial5' => 'testimonial5',
-                        'testimonial6' => 'testimonial6',
+                        'choose_supercoco1' => 'choose supercoco1',
+                        'choose_supercoco2' => 'choose supercoco2',
+                        'choose_supercoco3' => 'choose supercoco3',
+                        'choose_supercoco4' => 'choose supercoco4',
+                        'choose_supercoco5' => 'choose supercoco5',
+                        'choose_supercoco6' => 'choose supercoco6',
+                        'supercoco_bottom' => 'supercoco_bottom',
 
                     ]),
                 TextColumn::make('created_at')
@@ -179,7 +156,6 @@ class CocokingResource extends Resource
             ]);
     }
 
-
     public static function getRelations(): array
     {
         return [
@@ -190,9 +166,9 @@ class CocokingResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListCocokings::route('/'),
-            'create' => Pages\CreateCocoking::route('/create'),
-            'edit' => Pages\EditCocoking::route('/{record}/edit'),
+            'index' => Pages\ListSupercocopages::route('/'),
+            'create' => Pages\CreateSupercocopage::route('/create'),
+            'edit' => Pages\EditSupercocopage::route('/{record}/edit'),
         ];
     }
 }

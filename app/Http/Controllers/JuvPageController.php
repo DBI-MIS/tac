@@ -6,6 +6,7 @@ use App\Models\Cocoking;
 use App\Models\Juvpage;
 use App\Models\OrganicProduct;
 use App\Models\Page;
+use App\Models\TacPage;
 use Illuminate\Http\Request;
 
 class JuvPageController extends Controller
@@ -24,14 +25,13 @@ class JuvPageController extends Controller
             'choose_juv4',
             'juv_bottom',
             'introduction',
-            'testimonials',
     
 
         ];
 
         $juvPages = [];
 
-        $testimonials = Cocoking::orderBy('order', 'desc')
+        $testimonials = TacPage::orderBy('order', 'desc')
         ->where('section', 'testimonials')
         ->take(4)
         ->get();

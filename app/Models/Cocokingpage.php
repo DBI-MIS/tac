@@ -7,8 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use Spatie\LaravelMarkdown\MarkdownRenderer;
 use Illuminate\Support\Str;
 
-
-class TacPage extends Model
+class Cocokingpage extends Model
 {
     use HasFactory;
 

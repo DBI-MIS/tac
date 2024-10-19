@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Cocoking;
+use App\Models\Cocokingpage;
 use App\Models\OrganicProduct;
 use App\Models\Page;
+use App\Models\Supercocopage;
 use App\Models\TacPage;
 use Illuminate\Http\Request;
 
@@ -24,7 +26,6 @@ class SupercocoController extends Controller
             'headline',
             'introduction',
             'subheadline',
-            'testimonials',
             'supercoco_bottom',
             'choose_supercoco1',
             'choose_supercoco2',
@@ -34,24 +35,22 @@ class SupercocoController extends Controller
         $mainPages = [];
         $superPages = [];
         foreach($sections as $section){
-            $superPages[$section] = TacPage::where('section', $section)
+            $superPages[$section] = Supercocopage::where('section', $section)
         ->latest('created_at')
         ->first();
         }
-        $testimonials = Cocoking::orderBy('order', 'desc')
+
+        $testimonials = TacPage::orderBy('order', 'desc')
         ->where('section', 'testimonials')
         ->take(4)
         ->get();
+
         foreach ($fillers as $filler) {
             $mainPages[$filler] = Page::where('section', $filler)
                 ->latest('created_at')
                 ->first();
         }
-        foreach($sections as $section){
-            $cocoPages[$section] = Cocoking::where('section', $section)
-        ->latest('created_at')
-        ->first();
-        }
+    
         $featuredSupercocos = OrganicProduct::where('featured', true)
         ->latest('created_at')
         ->wherehas('product_brand', function($brand) {
@@ -69,7 +68,6 @@ class SupercocoController extends Controller
         return view('supercoco', [
             'mainPages' => $mainPages,
             'superPages' => $superPages,
-            'cocoPages' => $cocoPages,
             'featuredSupercocos' =>  $featuredSupercocos,
             'testimonials' => $testimonials,
         ]);

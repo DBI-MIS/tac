@@ -2,9 +2,9 @@
 
 namespace App\Filament\Resources;
 
-use App\Filament\Resources\JuvpageResource\Pages;
-use App\Filament\Resources\JuvpageResource\RelationManagers;
-use App\Models\Juvpage;
+use App\Filament\Resources\CocokingpageResource\Pages;
+use App\Filament\Resources\CocokingpageResource\RelationManagers;
+use App\Models\Cocokingpage;
 use Filament\Forms;
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\MarkdownEditor;
@@ -21,15 +21,15 @@ use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 
-class JuvpageResource extends Resource
+class CocokingpageResource extends Resource
 {
-    protected static ?string $model = Juvpage::class;
+    protected static ?string $model = Cocokingpage::class;
 
     protected static ?string $navigationGroup = 'Pages';
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
-    protected static ?string $navigationLabel = "JUV Page";
+    protected static ?string $navigationLabel = "Cocoking Page";
 
     public static function form(Form $form): Form
     {
@@ -40,6 +40,7 @@ class JuvpageResource extends Resource
                     TextInput::make('title')
                     ->required()
                     ->maxLength(255),
+                    
 
                     MarkdownEditor::make('description1')
                     ->toolbarButtons([
@@ -79,18 +80,18 @@ class JuvpageResource extends Resource
                     Select::make('section')
                     ->options([
                         'headline' => 'Headline',
-                        'introduction' => "Introduction",
+                        'body' => 'Body',
                         'subheadline' => 'Subheadline',
                         'introduction' => 'Introduction',
                         'contact' => 'Contact',
                         'features' => 'Features',
-                        'choose_juv1' => 'choose juv1',
-                        'choose_juv2' => 'choose juv2',
-                        'choose_juv3' => 'choose juv3',
-                        'choose_juv4' => 'choose juv4',
-                        'choose_juv5' => 'choose juv5',
-                        'choose_juv6' => 'choose juv6',
-                        'juv_bottom' => 'juv_bottom',
+                        'choose_cocoking1' => 'choose cocoking1',
+                        'choose_cocoking2' => 'choose cocoking2',
+                        'choose_cocoking3' => 'choose cocoking3',
+                        'choose_cocoking4' => 'choose cocoking4',
+                        'choose_cocoking5' => 'choose cocoking5',
+                        'choose_cocoking6' => 'choose cocoking6',
+                        'cocoking_bottom' => 'cocoking_bottom',
                        
                     ]),
                     FileUpload::make('img_page')
@@ -111,27 +112,29 @@ class JuvpageResource extends Resource
     {
         return $table
             ->columns([
+                TextColumn::make('order')
+                ->sortable(),
                 TextColumn::make('title')
                     ->searchable(),
                 ImageColumn::make('img_page')
                     ->searchable(),
-                SelectColumn::make('section')
-                ->options([
-                    'headline' => 'Headline',
+               SelectColumn::make('section')
+                    ->options([
+                        'headline' => 'Headline',
                         'body' => 'Body',
                         'subheadline' => 'Subheadline',
                         'introduction' => 'Introduction',
                         'contact' => 'Contact',
                         'features' => 'Features',
-                        'choose_juv1' => 'choose juv1',
-                        'choose_juv2' => 'choose juv2',
-                        'choose_juv3' => 'choose juv3',
-                        'choose_juv4' => 'choose juv4',
-                        'choose_juv5' => 'choose juv5',
-                        'choose_juv6' => 'choose juv6',
-                        'juv_bottom' => 'juv_bottom',
+                        'choose_cocoking1' => 'choose cocoking1',
+                        'choose_cocoking2' => 'choose cocoking2',
+                        'choose_cocoking3' => 'choose cocoking3',
+                        'choose_cocoking4' => 'choose cocoking4',
+                        'choose_cocoking5' => 'choose cocoking5',
+                        'choose_cocoking6' => 'choose cocoking6',
+                        'cocoking_bottom' => 'cocoking_bottom',
 
-                ]),
+                    ]),
                 TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()
@@ -154,7 +157,6 @@ class JuvpageResource extends Resource
             ]);
     }
 
-
     public static function getRelations(): array
     {
         return [
@@ -165,9 +167,9 @@ class JuvpageResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListJuvpages::route('/'),
-            'create' => Pages\CreateJuvpage::route('/create'),
-            'edit' => Pages\EditJuvpage::route('/{record}/edit'),
+            'index' => Pages\ListCocokingpages::route('/'),
+            'create' => Pages\CreateCocokingpage::route('/create'),
+            'edit' => Pages\EditCocokingpage::route('/{record}/edit'),
         ];
     }
 }

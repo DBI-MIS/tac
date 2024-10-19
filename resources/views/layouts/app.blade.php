@@ -67,10 +67,10 @@
     <div class="bg-gray-100 dark:bg-gray-600">
 
 
-        {{-- <livewire:layout.navigation /> --}}
         @livewire('navbar')
         <div class="min-h-screen">
             @yield('hero')
+            @yield('maintenance')
             @yield('cocoking')
             @yield('supercoco')
             @yield('juv')
